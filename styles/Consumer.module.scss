@@ -4,7 +4,13 @@ $vw-viewport: 1920;
   @return $font / $vw-context * 1vw;
   @return $font;
 }
-
+.scroll {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scroll::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
 .container {
   color: white
 }

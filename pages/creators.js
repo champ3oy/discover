@@ -7,8 +7,11 @@ import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Nav from "../components/Nav";
+import Modal from "../components/Modal";
 
 export default function Creator() {
+  const [showModal, setShowModal] = useState(false);
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -31,19 +34,18 @@ export default function Creator() {
   const data = [
     {
       id: 1,
-      title: `Watch and enjoy\n fun, addicting and\n exhilarating videos`,
-      subtext: `Are you bored or tired? Do not fret! Download Discover.App and enjoy lots of 
-        entertainment to wash your boredom away. Just scroll through the unending
-        fun gameplay & app preview videos. It is like TikTok and Twitch had a baby!`,
+      title: `Get paid for\n creating contents & \n ads for brands`,
+      subtext: `Partner with brands to create specific contents and ads for their Discover.App 
+      page. You will be handsomely rewarded! `,
     },
     {
       id: 1,
-      title: `Curate your own
-      rankings and share
-      with your friends `,
-      subtext: `Let’s get creative and put our editor’s hats on. Rank your favorite apps, 
-      games, content & creators while sharing your rankings with your friends. You 
-      may be rewarded as your rankings go viral. It is a social experience!`,
+      title: `Introduce yourself 
+      and your content to 
+      potential followers`,
+      subtext: `Post a 10 seconds video or showcase a snippet of your content to introduce yourself 
+      to the Discover.App community. Capture their attention and redirect them to follow 
+      you on Youtube, TikTok, Instagram and/or other social media channels`,
     },
   ];
 
@@ -88,7 +90,11 @@ export default function Creator() {
       </Head>
 
       <main className={styles.main}>
-        <Nav />
+        <Nav
+          onPress={() => {
+            setShowModal(true);
+          }}
+        />
 
         <Carousel
           responsive={responsive}
@@ -102,46 +108,67 @@ export default function Creator() {
           arrows={false}
           pauseOnHover={false}
         >
-          {data.map((item, index) => {
-            return (
-              <section key={index} className={styles.hero}>
-                <div className={styles.herocontent}>
-                  <h1>{item.title}</h1>
-                  <p>{item.subtext}</p>
-                  <div className={styles.herobtn}>Sign Up</div>
-                </div>
-              </section>
-            );
-          })}
+          <section className={styles.hero}>
+            <div className={styles.herocontent}>
+              <h1>
+                Get paid for
+                <br /> creating contents & <br /> ads for brands
+              </h1>
+              <p>
+                Partner with brands to create specific contents and ads for
+                their Discover.App
+                <br />
+                page. You will be handsomely rewarded!
+              </p>
+              <div className={styles.herobtn}>Sign Up</div>
+            </div>
+          </section>
+          <section className={styles.hero}>
+            <div className={styles.herocontent}>
+              <h1>
+                Introduce yourself <br />
+                and your content to <br />
+                potential followers
+              </h1>
+              <p>
+                Post a 10 seconds video or showcase a snippet of your content to
+                introduce yourself <br />
+                to the Discover.App community. Capture their attention and
+                redirect them to follow <br />
+                you on Youtube, TikTok, Instagram and/or other social media
+                channels
+              </p>
+              <div className={styles.herobtn}>Sign Up</div>
+            </div>
+          </section>
         </Carousel>
       </main>
 
       <section className={styles.hero2}>
         <div className={styles.hero2content}>
-          <h1>Start Discovering</h1>
+          <h1>Post & get discovered</h1>
           <p>
-            Scroll through an interactive feed of apps or games and start
-            downloading directly from <br />
-            the AppStore, PlayStore or Amazon Store
+            Start to build your creator & influencer career by getting you and
+            your content discovered serendipitously <br />
+            on Discover.App. You will stay on the front page of our audience
+            minds with the right discovery video
           </p>
         </div>
 
         <div className={styles.scroll}>
-          {scroll.map((item, index) => {
+          {[1, 2, 3, 4, 5].map((item, index) => {
             return (
               <div
                 style={{
-                  backgroundImage: `url(opi${item.id}.png)`,
+                  justifyContent: item % 2 == 0 ? "flex-end" : "flex-start",
                 }}
+                className={styles.scrollitemcon}
                 key={index}
-                className={styles.scrollitem}
               >
-                <h1>{item.title}</h1>
-
                 <img
-                  src={`pill${index + 1}.png`}
+                  src={`c${index + 1}.png`}
                   alt="pill"
-                  className={styles.pill}
+                  className={styles.scrollitem}
                 />
               </div>
             );
@@ -152,19 +179,21 @@ export default function Creator() {
       <section className={styles.hero3}>
         <div className={styles.hero3content}>
           <h1>
-            Explore new <br />
-            apps & games <br />
-            with ease
+            Increase your followers <br />
+            as you build your influence <br />
+            with Discover.App
           </h1>
           <div className={styles.hero3btn}>Sign Up</div>
         </div>
       </section>
+
       <section className={styles.hero32}>
         <div className={styles.hero3content2}>
           <h1>
-            Discover.App is like
+            Go viral by creating
             <br />
-            TikTok & Twitch had <br />a beautiful baby
+            ranking for app &<br />
+            games
           </h1>
           <div className={styles.hero3btn2}>Get Early Access</div>
         </div>
@@ -173,10 +202,9 @@ export default function Creator() {
       <section className={styles.hero4}>
         <div className={styles.hero4content}>
           <h1>
-            Get paid <br />
-            for performing
-            <br />
-            tasks
+            Partner with <br />
+            brands to create <br />
+            content
           </h1>
         </div>
       </section>
@@ -184,13 +212,13 @@ export default function Creator() {
       <footer className={styles.footer}>
         <div className={styles.footercontent}>
           <h1>
-            Keep your pulse on all great <br />
-            apps & games on the AppStore and <br />
-            PlayStore with{" "}
-            <span className={styles.yellow}>
-              Discover.App <br />
-              Join us!
-            </span>
+            Drive eyeballs to your social media
+            <br />
+            channels with <span className={styles.yellow}>Discover.App</span>.
+            Kickstart your <br />
+            creator journey the right way!{" "}
+            <span className={styles.yellow}>Join Us</span>
+            <br />
           </h1>
 
           <div className={styles.input}>
@@ -217,6 +245,14 @@ export default function Creator() {
           </div>
         </nav>
       </footer>
+
+      <Modal
+        show={showModal}
+        onclose={() => {
+          setShowModal(false);
+        }}
+        type={3}
+      />
     </div>
   );
 }

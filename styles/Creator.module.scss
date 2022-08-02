@@ -22,7 +22,7 @@ $vw-viewport: 1920;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: get-vw(100px);
+
 }
 .navleft {
   display: flex;
@@ -55,12 +55,12 @@ $vw-viewport: 1920;
   cursor: pointer;
 }
 .hero {
-  padding: get-vw(1px) get-vw(133px) 0 get-vw(320px);
+  padding: get-vw(122px) get-vw(0px) 0 get-vw(0px);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
+  width: 100vw;
 }
 
 .herocontent {
@@ -77,7 +77,7 @@ $vw-viewport: 1920;
   background: -webkit-linear-gradient(#FFFD2E, #D5D5D5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 0.9;
+  line-height: 1;
   padding-bottom: get-vw(33px);
   text-align: center;
 }
@@ -141,6 +141,21 @@ $vw-viewport: 1920;
   margin-bottom: get-vw(203px);
   overflow-x: scroll;
   overflow: scroll;
+  height: get-vw(820px);
+}
+
+.scroll {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scroll::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+.scrollitemcon {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .scrollitem {
@@ -148,30 +163,12 @@ $vw-viewport: 1920;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    min-width: get-vw(734px);
-    height: get-vw(722px);
-    background-color: white;
+    min-width: get-vw(446px);
+    height: get-vw(627px);
+    background-color: rgba(255, 255, 255, 0.055);
     border-radius: get-vw(50px);
     margin-right: get-vw(35px);
-    padding: get-vw(90px) 0 get-vw(125px) get-vw(65px);
-    background-image:  url("/opi1.png");
-    background-size: get-vw(350px);
-    background-repeat: no-repeat;
-    background-position-x: 90%;
-    background-position-y:  50%;
 }
-.scrollitem h1 {
-    font-size: get-vw(51px);
-    font-weight: bold;
-    line-height: 1;
-    color: #000;
-    width: get-vw(350px);
-}
-.pill {
-    width: get-vw(150px);
-    height: get-vw(75px);
-}
-
 
 .hero3 {
   background-color: #FFFD2E;
@@ -258,9 +255,9 @@ padding-left: get-vw(700px);
 .hero4 {
   width: 100vw;
   height: get-vw(1166px);
-  background-image: url("/bighero2.png");
+  background-image: url("/bighero3.png");
   background-repeat: no-repeat;
-  background-position-x: get-vw(-20px);
+  background-position-x: get-vw(0px);
   background-size: cover;
   display: flex;
   flex-direction: column;

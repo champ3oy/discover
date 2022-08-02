@@ -7,8 +7,11 @@ import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Nav from "../components/Nav";
+import Modal from "../components/Modal";
 
 export default function Consumer() {
+  const [showModal, setShowModal] = useState(false);
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -88,7 +91,11 @@ export default function Consumer() {
       </Head>
 
       <main className={styles.main}>
-        <Nav />
+        <Nav
+          onPress={() => {
+            setShowModal(true);
+          }}
+        />
 
         <Carousel
           responsive={responsive}
@@ -220,6 +227,14 @@ export default function Consumer() {
           </div>
         </nav>
       </footer>
+
+      <Modal
+        show={showModal}
+        onclose={() => {
+          setShowModal(false);
+        }}
+        type={2}
+      />
     </div>
   );
 }

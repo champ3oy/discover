@@ -1,7 +1,18 @@
 import styles from "../styles/Home.module.scss";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import React from "react";
 
-export default function Nav() {
+export default function Nav({ onPress = () => {} }) {
+  const router = useRouter();
+  const [active, setActive] = React.useState("");
+
+  React.useEffect(() => {
+    if (["/", "/creators", "/consumer"].includes(router.pathname)) {
+      setActive(router.pathname);
+    }
+  }, [router.pathname]);
+
   return (
     <nav className={styles.nav}>
       <div className={styles.navleft}>
@@ -9,18 +20,44 @@ export default function Nav() {
 
         <div className={styles.navlinks}>
           <Link href="/">
-            <a href="#">Developers & Publishers</a>
+            <a
+              style={{
+                textDecoration: active === "/" ? "underline" : "none",
+                textDecorationColor: "white",
+              }}
+              href="#"
+            >
+              Developers & Publishers
+            </a>
           </Link>
           <Link href="/consumer">
-            <a href="#">Consumer</a>
+            <a
+              style={{
+                textDecoration: active === "/consumer" ? "underline" : "none",
+                textDecorationColor: "white",
+              }}
+              href="#"
+            >
+              Consumer
+            </a>
           </Link>
           <Link href="/creators">
-            <a href="#">Creators & Influencers</a>
+            <a
+              style={{
+                textDecoration: active === "/creators" ? "underline" : "none",
+                textDecorationColor: "white",
+              }}
+              href="#"
+            >
+              Creators & Influencers
+            </a>
           </Link>
         </div>
       </div>
       <div className={styles.navright}>
-        <div className={styles.navbtn}>Sign Up</div>
+        <div onClick={onPress} className={styles.navbtn}>
+          Sign Up
+        </div>
       </div>
     </nav>
   );
