@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
+import styles from "../styles/Main.module.scss";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -8,9 +8,16 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Nav from "../components/Nav";
 import Modal from "../components/Modal";
+import Link from "next/link";
 
-export default function Home() {
+export default function Creator() {
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+    });
+  }, []);
 
   const responsive = {
     superLargeDesktop: {
@@ -31,6 +38,56 @@ export default function Home() {
     },
   };
 
+  const data = [
+    {
+      id: 1,
+      title: `Get paid for\n creating contents & \n ads for brands`,
+      subtext: `Partner with brands to create specific contents and ads for their Discover.App 
+      page. You will be handsomely rewarded! `,
+    },
+    {
+      id: 1,
+      title: `Introduce yourself 
+      and your content to 
+      potential followers`,
+      subtext: `Post a 10 seconds video or showcase a snippet of your content to introduce yourself 
+      to the Discover.App community. Capture their attention and redirect them to follow 
+      you on Youtube, TikTok, Instagram and/or other social media channels`,
+    },
+  ];
+
+  const scroll = [
+    {
+      id: 1,
+      title: `Curate your \n
+        own top 10 \n
+        rankings & \n
+        share with\n
+        your friends`,
+    },
+    {
+      id: 1,
+      title: `Earn for \n
+        completing\n
+        tasks for\n
+        brands`,
+    },
+    {
+      id: 3,
+      title: `Scroll\n
+        through \n
+        interactive\n
+        gameplay`,
+    },
+    {
+      id: 1,
+      title: `Download\n
+        apps & games\n
+        directly in\n
+        your feed`,
+    },
+  ];
+
   return (
     <div className={styles.container}>
       <Head>
@@ -48,11 +105,11 @@ export default function Home() {
 
         <Carousel
           responsive={responsive}
-          autoPlay={true}
+          autoPlay={false}
           infinite={true}
           showArrows={false}
           showStatus={false}
-          autoPlaySpeed={10000}
+          autoPlaySpeed={100000}
           showDots={false}
           swipeable={true}
           arrows={false}
@@ -60,117 +117,116 @@ export default function Home() {
         >
           <section className={styles.hero}>
             <div className={styles.herocontent}>
-              <img src="1.png" alt="pagination" className={styles.page} />
+              <div className={styles.heroimgs}>
+                <img
+                  data-aos="fade-down"
+                  data-aos-delay="100"
+                  src="/wombo.png"
+                  alt="icon"
+                />
+                <img
+                  data-aos="fade-down"
+                  data-aos-delay="200"
+                  src="/app1.png"
+                  alt="icon"
+                />
+                <img
+                  data-aos="fade-down"
+                  data-aos-delay="300"
+                  src="/amongus.png"
+                  alt="icon"
+                />
+                <img
+                  data-aos="fade-down"
+                  data-aos-delay="400"
+                  src="/hulu.png"
+                  alt="icon"
+                />
+                <img
+                  data-aos="fade-down"
+                  data-aos-delay="500"
+                  src="/app2.png"
+                  alt="icon"
+                />
+                <img
+                  data-aos="fade-down"
+                  data-aos-delay="600"
+                  src="/app3.png"
+                  alt="icon"
+                />
+              </div>
               <h1>
-                Showcase your <br />
-                apps and games <br />
-                to quality users
+                The power of community <br />
+                for discovering apps, content & <br />
+                creators
               </h1>
               <p>
-                Get your apps and games in the hands of users quick and easy in{" "}
-                <br />a fun way. Users get an experience of how your app or game
-                looks <br />& feels by watching the video previews before
-                downloading
-              </p>
-              <div className={styles.herobtn}>Sign Up</div>
-            </div>
-
-            <img className={styles.heroimg} src="hero1.png" alt="hero" />
-          </section>
-          <section className={styles.hero}>
-            <div className={styles.herocontent}>
-              <img src="2.png" alt="pagination" className={styles.page} />
-              <h1>
-                User acquisition
+                Discover.App provides our users a token powered video platform
+                for discovering apps, dapps, games, <br />
+                content, creators, web3 community, crypto projects, tokens and
+                everything in between
                 <br />
-                on steroids! And <br />
-                it’s low cost
-              </h1>
-              <p>
-                Don’t allow your your apps and games to go unnoticed on the
-                AppStore or <br />
-                the PlayStore nor your hard work to go unrewarded. With
-                Discover.App, your <br />
-                app or game does not sink into the abyss of the AppStore or the
-                PlayStore
               </p>
-              <div className={styles.herobtn}>Sign Up</div>
+              {/* <div className={styles.herobtn}>Sign Up</div> */}
             </div>
-
-            <img className={styles.heroimg} src="hero1.png" alt="hero" />
-          </section>
-          <section className={styles.hero}>
-            <div className={styles.herocontent}>
-              <img src="3.png" alt="pagination" className={styles.page} />
-              <h1>
-                Seed your game <br />
-                with users free of <br />
-                charge for 3 months
-              </h1>
-              <p>
-                Discover.App gives you a cheaper way to get your apps and games
-                noticed by <br />
-                users. Just sign up with Discover.App, upload your video
-                previews and get users <br />
-                into your app or game cheaply and easily. Enjoy the fruits of
-                your labour!
-              </p>
-              <div className={styles.herobtn}>Sign Up</div>
-            </div>
-
-            <img className={styles.heroimg} src="hero1.png" alt="hero" />
           </section>
         </Carousel>
       </main>
 
-      <section className={styles.hero2}>
-        <div className={styles.hero2content}>
-          <h1>Post & Acquire Users</h1>
-          <p>
-            Post 15 seconds preview videos of your app or game and start
-            exploding on the AppStore, PlayStore or <br />
-            Amazon Store with downloads & reviews
-          </p>
+      <section className={styles.hero3}>
+        <img src="/h3.png" alt="hero3" />
+        <div className={styles.hero3content}>
+          <p>Are you a developer or publisher?</p>
+          <h1>
+            Promote your <br />
+            App, Dapps & <br />
+            Games
+          </h1>
+          <Link href="/developers">
+            <div className={styles.hero3btn}>Learn more</div>
+          </Link>
         </div>
+      </section>
 
-        <div className={styles.hero2imgs}>
-          <img className={styles.heroleft} src="heroleft.png" alt="hero" />
-          <img className={styles.herom} src="herom.png" alt="hero" />
-          <img className={styles.heroright} src="heroright.png" alt="hero" />
+      <section className={styles.hero32}>
+        <div className={styles.hero3content2}>
+          <p>Are you a Consumer or Superfan?</p>
+          <h1>
+            Discover, share <br />
+            & promote new <br />
+            apps and content <br />
+            And get paid!
+          </h1>
+          <Link href="/consumer">
+            <div className={styles.hero3btn}>Learn more</div>
+          </Link>
         </div>
+        <img src="/h32.png" alt="hero3" />
       </section>
 
       <section className={styles.hero3}>
+        <img src="/h3.png" alt="hero3" />
         <div className={styles.hero3content}>
+          <p>Are you a Creator, Influencer or Celebrity?</p>
           <h1>
-            Get more exposure <br />
-            & downloads with <br />
-            our interactive feed
-          </h1>
-          <div className={styles.hero3btn}>Sign Up</div>
-        </div>
-      </section>
-
-      <section className={styles.hero4}>
-        <div className={styles.hero4content}>
-          <h1>
-            Marketing your
+            Market yourself <br />
+            and your content <br />
+            to the Discover.App
             <br />
-            apps & games made <br />
-            easy and cheap
+            community
           </h1>
+          <Link href="/creators">
+            <div className={styles.hero3btn}>Learn more</div>
+          </Link>
         </div>
       </section>
 
       <footer className={styles.footer}>
         <div className={styles.footercontent}>
           <h1>
-            Your user acquisition <br />
-            strategy starts with{" "}
-            <span className={styles.yellow}>
-              Discover.App <br />
-              Join us!{" "}
-            </span>
+            The first token powered video discovery <br />
+            platform & community for everyone. <br />
+            <span className={styles.yellow}>Join Us!</span>
           </h1>
 
           <div className={styles.input}>
@@ -203,7 +259,7 @@ export default function Home() {
         onclose={() => {
           setShowModal(false);
         }}
-        type={1}
+        type={3}
       />
     </div>
   );

@@ -27,6 +27,17 @@ export default function Nav({ onPress = () => {} }) {
               }}
               href="#"
             >
+              Home
+            </a>
+          </Link>
+          <Link href="/developers">
+            <a
+              style={{
+                textDecoration: active === "/developers" ? "underline" : "none",
+                textDecorationColor: "white",
+              }}
+              href="#"
+            >
               Developers & Publishers
             </a>
           </Link>
