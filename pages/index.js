@@ -12,11 +12,21 @@ import Link from "next/link";
 
 export default function Creator() {
   const [showModal, setShowModal] = useState(false);
+  const [width, setwidth] = useState("");
 
   useEffect(() => {
     AOS.init({
       offset: 100,
     });
+
+    if (typeof window !== "undefined") {
+      let width_ =
+        document.body.clientWidth ||
+        window.innerHeight ||
+        document.documentElement.clientHeigh;
+
+      setwidth(width_);
+    }
   }, []);
 
   const responsive = {
@@ -160,13 +170,21 @@ export default function Creator() {
                 for discovering apps, content & <br />
                 creators
               </h1>
-              <p>
-                Discover.App provides our users a token powered video platform
-                for discovering apps, dapps, games, <br />
-                content, creators, web3 community, crypto projects, tokens and
-                everything in between
-                <br />
-              </p>
+              {width <= 600 ? (
+                <p>
+                  Discover.App provides our users a token powered video platform
+                  for discovering apps, dapps, games, content, creators, web3
+                  community, crypto projects, tokens and everything in between
+                </p>
+              ) : (
+                <p>
+                  Discover.App provides our users a token powered video platform
+                  for discovering apps, dapps, games, <br />
+                  content, creators, web3 community, crypto projects, tokens and
+                  everything in between
+                  <br />
+                </p>
+              )}
               {/* <div className={styles.herobtn}>Sign Up</div> */}
             </div>
           </section>
@@ -191,12 +209,17 @@ export default function Creator() {
       <section className={styles.hero32}>
         <div className={styles.hero3content2}>
           <p>Are you a Consumer or Superfan?</p>
-          <h1>
-            Discover, share <br />
-            & promote new <br />
-            apps and content <br />
-            And get paid!
-          </h1>
+          {width <= 600 ? (
+            <h1>
+              Discover, share <br />& promote new apps, content and get paid!
+            </h1>
+          ) : (
+            <h1>
+              Discover, share & promote new <br />
+              apps and content <br />
+              And get paid!
+            </h1>
+          )}
           <Link href="/consumer">
             <div className={styles.hero3btn}>Learn more</div>
           </Link>
@@ -208,13 +231,19 @@ export default function Creator() {
         <img src="/h3.png" alt="hero3" />
         <div className={styles.hero3content}>
           <p>Are you a Creator, Influencer or Celebrity?</p>
-          <h1>
-            Market yourself <br />
-            and your content <br />
-            to the Discover.App
-            <br />
-            community
-          </h1>
+          {width <= 600 ? (
+            <h1>
+              Market yourself and your content to the Discover.App community
+            </h1>
+          ) : (
+            <h1>
+              Market yourself <br />
+              and your content <br />
+              to the Discover.App
+              <br />
+              community
+            </h1>
+          )}
           <Link href="/creators">
             <div className={styles.hero3btn}>Learn more</div>
           </Link>
@@ -235,23 +264,55 @@ export default function Creator() {
           </div>
         </div>
 
-        <nav className={styles.fnav}>
-          <div className={styles.fnavleft}>
-            <img className={styles.logo} src="logo.png" alt="logo" />
+        {width <= 600 ? (
+          <nav className={styles.fnav}>
+            <div className={styles.fnavleft}>
+              <img className={styles.logo} src="logo.png" alt="logo" />
 
-            <div className={styles.navlinks}>
-              <a href="#">
-                &copy; Discover.App 2022 / Terms of Use / Privacy Policy
-              </a>
+              <div className={styles.ftexts}>
+                The first video AppStore for discovering apps, <br />
+                games, contents & creators
+                <br />
+                <br />
+                &copy; Discover.App 2022
+              </div>
+
+              <strong>Company</strong>
+              <div className={styles.navlinks}>
+                <a href="#">Privacy</a>
+                <a href="#">Blog</a>
+                <a href="#">Help Center</a>
+                <a href="#">FAQ</a>
+                <a href="#">Team</a>
+                <a href="#">Terms of Service</a>
+              </div>
             </div>
-          </div>
-          <div className={styles.fnavright}>
-            <img className={styles.icon} src="yt.png" alt="logo" />
-            <img className={styles.icon} src="tk.png" alt="logo" />
-            <img className={styles.icon} src="ig.png" alt="logo" />
-            <img className={styles.icon} src="tw.png" alt="logo" />
-          </div>
-        </nav>
+            <div className={styles.fnavright}>
+              <img className={styles.icon} src="yt2.png" alt="logo" />
+              <img className={styles.icon} src="tk2.png" alt="logo" />
+              <img className={styles.icon} src="ig2.png" alt="logo" />
+              <img className={styles.icon} src="tw2.png" alt="logo" />
+            </div>
+          </nav>
+        ) : (
+          <nav className={styles.fnav}>
+            <div className={styles.fnavleft}>
+              <img className={styles.logo} src="logo.png" alt="logo" />
+
+              <div className={styles.navlinks}>
+                <a href="#">
+                  &copy; Discover.App 2022 / Terms of Use / Privacy Policy
+                </a>
+              </div>
+            </div>
+            <div className={styles.fnavright}>
+              <img className={styles.icon} src="yt.png" alt="logo" />
+              <img className={styles.icon} src="tk.png" alt="logo" />
+              <img className={styles.icon} src="ig.png" alt="logo" />
+              <img className={styles.icon} src="tw.png" alt="logo" />
+            </div>
+          </nav>
+        )}
       </footer>
 
       <Modal

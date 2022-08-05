@@ -7,6 +7,19 @@ export default function Nav({ onPress = () => {} }) {
   const router = useRouter();
   const [active, setActive] = React.useState("");
 
+  const [width, setwidth] = React.useState("");
+
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      let width_ =
+        document.body.clientWidth ||
+        window.innerHeight ||
+        document.documentElement.clientHeigh;
+
+      setwidth(width_);
+    }
+  }, []);
+
   React.useEffect(() => {
     if (["/", "/creators", "/consumer"].includes(router.pathname)) {
       setActive(router.pathname);
@@ -66,9 +79,13 @@ export default function Nav({ onPress = () => {} }) {
         </div>
       </div>
       <div className={styles.navright}>
-        <div onClick={onPress} className={styles.navbtn}>
-          Sign Up
-        </div>
+        {width <= 600 ? (
+          <img className={styles.menu} src="bar.png" alt="menu" />
+        ) : (
+          <div onClick={onPress} className={styles.navbtn}>
+            Sign Up
+          </div>
+        )}
       </div>
     </nav>
   );
