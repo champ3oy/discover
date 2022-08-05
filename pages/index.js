@@ -215,7 +215,7 @@ export default function Creator() {
             </h1>
           ) : (
             <h1>
-              Discover, share & promote new <br />
+              Discover, share <br />& promote new <br />
               apps and content <br />
               And get paid!
             </h1>

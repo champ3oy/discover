@@ -13,6 +13,11 @@ $vw-viewport: 1920;
   height: get-vw(1080px);
   width: 100vw;
 }
+.logo {
+  width: get-vw(195px);
+  height: get-vw(41px);
+  margin-right: get-vw(43px);
+}
 
 .hero {
   padding: get-vw(122px) get-vw(0px) 0 get-vw(0px);
