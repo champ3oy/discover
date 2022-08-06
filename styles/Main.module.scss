@@ -585,6 +585,7 @@ $vw-viewport: 1920;
   .navlinks a {
     width: 50%;
     margin: get-vw(7.5px) 0;
+    font-size: get-vw(11px);
   }
   .fnavright {
     display: flex;

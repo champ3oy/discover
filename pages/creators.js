@@ -11,6 +11,22 @@ import Modal from "../components/Modal";
 
 export default function Creator() {
   const [showModal, setShowModal] = useState(false);
+  const [width, setwidth] = useState("");
+
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+    });
+
+    if (typeof window !== "undefined") {
+      let width_ =
+        document.body.clientWidth ||
+        window.innerHeight ||
+        document.documentElement.clientHeigh;
+
+      setwidth(width_);
+    }
+  }, []);
 
   const responsive = {
     superLargeDesktop: {
@@ -147,12 +163,21 @@ export default function Creator() {
       <section className={styles.hero2}>
         <div className={styles.hero2content}>
           <h1>Post & get discovered</h1>
-          <p>
-            Start to build your creator & influencer career by getting you and
-            your content discovered serendipitously <br />
-            on Discover.App. You will stay on the front page of our audience
-            minds with the right discovery video
-          </p>
+          {width <= 600 ? (
+            <p>
+              Start to build your creator & influencer career by getting you and
+              your content discovered serendipitously on Discover.App. You will
+              stay on the front page of our audience minds with the right
+              discovery video
+            </p>
+          ) : (
+            <p>
+              Start to build your creator & influencer career by getting you and
+              your content discovered serendipitously <br />
+              on Discover.App. You will stay on the front page of our audience
+              minds with the right discovery video
+            </p>
+          )}
         </div>
 
         <div className={styles.scroll}>
@@ -178,24 +203,35 @@ export default function Creator() {
 
       <section className={styles.hero3}>
         <div className={styles.hero3content}>
-          <h1>
-            Increase your followers <br />
-            as you build your influence <br />
-            with Discover.App
-          </h1>
+          {width <= 600 ? (
+            <h1>
+              Increase your followers as you build your influence with
+              Discover.App
+            </h1>
+          ) : (
+            <h1>
+              Increase your followers <br />
+              as you build your influence <br />
+              with Discover.App
+            </h1>
+          )}
           <div className={styles.hero3btn}>Sign Up</div>
         </div>
       </section>
 
       <section className={styles.hero32}>
         <div className={styles.hero3content2}>
-          <h1>
-            Go viral by creating
-            <br />
-            ranking for app &<br />
-            games
-          </h1>
-          <div className={styles.hero3btn2}>Get Early Access</div>
+          {width <= 600 ? (
+            <h1>Go viral by creating ranking for app & games</h1>
+          ) : (
+            <h1>
+              Go viral by creating
+              <br />
+              ranking for app &<br />
+              games
+            </h1>
+          )}
+          <div className={styles.hero3btn}>Sign Up</div>
         </div>
       </section>
 
@@ -212,13 +248,9 @@ export default function Creator() {
       <footer className={styles.footer}>
         <div className={styles.footercontent}>
           <h1>
-            Drive eyeballs to your social media
-            <br />
-            channels with <span className={styles.yellow}>Discover.App</span>.
-            Kickstart your <br />
-            creator journey the right way!{" "}
-            <span className={styles.yellow}>Join Us</span>
-            <br />
+            The first token powered video discovery <br />
+            platform & community for everyone. <br />
+            <span className={styles.yellow}>Join Us!</span>
           </h1>
 
           <div className={styles.input}>
@@ -227,23 +259,55 @@ export default function Creator() {
           </div>
         </div>
 
-        <nav className={styles.fnav}>
-          <div className={styles.fnavleft}>
-            <img className={styles.logo} src="logo.png" alt="logo" />
+        {width <= 600 ? (
+          <nav className={styles.fnav}>
+            <div className={styles.fnavleft}>
+              <img className={styles.logo} src="logo.png" alt="logo" />
 
-            <div className={styles.navlinks}>
-              <a href="#">
-                &copy; Discover.App 2022 / Terms of Use / Privacy Policy
-              </a>
+              <div className={styles.ftexts}>
+                The first video AppStore for discovering apps, <br />
+                games, contents & creators
+                <br />
+                <br />
+                &copy; Discover.App 2022
+              </div>
+
+              <strong>Company</strong>
+              <div className={styles.navlinks}>
+                <a href="#">Privacy</a>
+                <a href="#">Blog</a>
+                <a href="#">Help Center</a>
+                <a href="#">FAQ</a>
+                <a href="#">Team</a>
+                <a href="#">Terms of Service</a>
+              </div>
             </div>
-          </div>
-          <div className={styles.fnavright}>
-            <img className={styles.icon} src="yt.png" alt="logo" />
-            <img className={styles.icon} src="tk.png" alt="logo" />
-            <img className={styles.icon} src="ig.png" alt="logo" />
-            <img className={styles.icon} src="tw.png" alt="logo" />
-          </div>
-        </nav>
+            <div className={styles.fnavright}>
+              <img className={styles.icon} src="yt2.png" alt="logo" />
+              <img className={styles.icon} src="tk2.png" alt="logo" />
+              <img className={styles.icon} src="ig2.png" alt="logo" />
+              <img className={styles.icon} src="tw2.png" alt="logo" />
+            </div>
+          </nav>
+        ) : (
+          <nav className={styles.fnav}>
+            <div className={styles.fnavleft}>
+              <img className={styles.logo} src="logo.png" alt="logo" />
+
+              <div className={styles.navlinks}>
+                <a href="#">
+                  &copy; Discover.App 2022 / Terms of Use / Privacy Policy
+                </a>
+              </div>
+            </div>
+            <div className={styles.fnavright}>
+              <img className={styles.icon} src="yt.png" alt="logo" />
+              <img className={styles.icon} src="tk.png" alt="logo" />
+              <img className={styles.icon} src="ig.png" alt="logo" />
+              <img className={styles.icon} src="tw.png" alt="logo" />
+            </div>
+          </nav>
+        )}
       </footer>
 
       <Modal

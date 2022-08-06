@@ -11,6 +11,22 @@ import Modal from "../components/Modal";
 
 export default function Developers() {
   const [showModal, setShowModal] = useState(false);
+  const [width, setwidth] = useState("");
+
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+    });
+
+    if (typeof window !== "undefined") {
+      let width_ =
+        document.body.clientWidth ||
+        window.innerHeight ||
+        document.documentElement.clientHeigh;
+
+      setwidth(width_);
+    }
+  }, []);
 
   const responsive = {
     superLargeDesktop: {
@@ -133,44 +149,55 @@ export default function Developers() {
           </p>
         </div>
 
-        <div className={styles.hero2imgs}>
-          <img className={styles.heroleft} src="heroleft.png" alt="hero" />
-          <img className={styles.herom} src="herom.png" alt="hero" />
-          <img className={styles.heroright} src="heroright.png" alt="hero" />
-        </div>
+        {width <= 600 ? (
+          <div className={styles.hero2imgs}>
+            <img className={styles.herom} src="herom.png" alt="hero" />
+          </div>
+        ) : (
+          <div className={styles.hero2imgs}>
+            <img className={styles.heroleft} src="heroleft.png" alt="hero" />
+            <img className={styles.herom} src="herom.png" alt="hero" />
+            <img className={styles.heroright} src="heroright.png" alt="hero" />
+          </div>
+        )}
       </section>
 
       <section className={styles.hero3}>
         <div className={styles.hero3content}>
-          <h1>
-            Get more exposure <br />
-            & downloads with <br />
-            our interactive feed
-          </h1>
+          {width <= 600 ? (
+            <h1>Get more exposure & downloads with our interactive feed</h1>
+          ) : (
+            <h1>
+              Get more exposure <br />
+              & downloads with <br />
+              our interactive feed
+            </h1>
+          )}
           <div className={styles.hero3btn}>Sign Up</div>
         </div>
       </section>
 
       <section className={styles.hero4}>
         <div className={styles.hero4content}>
-          <h1>
-            Marketing your
-            <br />
-            apps & games made <br />
-            easy and cheap
-          </h1>
+          {width <= 600 ? (
+            <h1>Marketing your apps & games made easy and cheap</h1>
+          ) : (
+            <h1>
+              Marketing your
+              <br />
+              apps & games made <br />
+              easy and cheap
+            </h1>
+          )}
         </div>
       </section>
 
       <footer className={styles.footer}>
         <div className={styles.footercontent}>
           <h1>
-            Your user acquisition <br />
-            strategy starts with{" "}
-            <span className={styles.yellow}>
-              Discover.App <br />
-              Join us!{" "}
-            </span>
+            The first token powered video discovery <br />
+            platform & community for everyone. <br />
+            <span className={styles.yellow}>Join Us!</span>
           </h1>
 
           <div className={styles.input}>
@@ -179,23 +206,55 @@ export default function Developers() {
           </div>
         </div>
 
-        <nav className={styles.fnav}>
-          <div className={styles.fnavleft}>
-            <img className={styles.logo} src="logo.png" alt="logo" />
+        {width <= 600 ? (
+          <nav className={styles.fnav}>
+            <div className={styles.fnavleft}>
+              <img className={styles.logo} src="logo.png" alt="logo" />
 
-            <div className={styles.navlinks}>
-              <a href="#">
-                &copy; Discover.App 2022 / Terms of Use / Privacy Policy
-              </a>
+              <div className={styles.ftexts}>
+                The first video AppStore for discovering apps, <br />
+                games, contents & creators
+                <br />
+                <br />
+                &copy; Discover.App 2022
+              </div>
+
+              <strong>Company</strong>
+              <div className={styles.fnavlinks}>
+                <a href="#">Privacy</a>
+                <a href="#">Blog</a>
+                <a href="#">Help Center</a>
+                <a href="#">FAQ</a>
+                <a href="#">Team</a>
+                <a href="#">Terms of Service</a>
+              </div>
             </div>
-          </div>
-          <div className={styles.fnavright}>
-            <img className={styles.icon} src="yt.png" alt="logo" />
-            <img className={styles.icon} src="tk.png" alt="logo" />
-            <img className={styles.icon} src="ig.png" alt="logo" />
-            <img className={styles.icon} src="tw.png" alt="logo" />
-          </div>
-        </nav>
+            <div className={styles.fnavright}>
+              <img className={styles.icon} src="yt2.png" alt="logo" />
+              <img className={styles.icon} src="tk2.png" alt="logo" />
+              <img className={styles.icon} src="ig2.png" alt="logo" />
+              <img className={styles.icon} src="tw2.png" alt="logo" />
+            </div>
+          </nav>
+        ) : (
+          <nav className={styles.fnav}>
+            <div className={styles.fnavleft}>
+              <img className={styles.logo} src="logo.png" alt="logo" />
+
+              <div className={styles.navlinks}>
+                <a href="#">
+                  &copy; Discover.App 2022 / Terms of Use / Privacy Policy
+                </a>
+              </div>
+            </div>
+            <div className={styles.fnavright}>
+              <img className={styles.icon} src="yt.png" alt="logo" />
+              <img className={styles.icon} src="tk.png" alt="logo" />
+              <img className={styles.icon} src="ig.png" alt="logo" />
+              <img className={styles.icon} src="tw.png" alt="logo" />
+            </div>
+          </nav>
+        )}
       </footer>
 
       <Modal

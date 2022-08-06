@@ -11,6 +11,22 @@ import Modal from "../components/Modal";
 
 export default function Consumer() {
   const [showModal, setShowModal] = useState(false);
+  const [width, setwidth] = useState("");
+
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+    });
+
+    if (typeof window !== "undefined") {
+      let width_ =
+        document.body.clientWidth ||
+        window.innerHeight ||
+        document.documentElement.clientHeigh;
+
+      setwidth(width_);
+    }
+  }, []);
 
   const responsive = {
     superLargeDesktop: {
@@ -50,6 +66,21 @@ export default function Consumer() {
     },
   ];
 
+  const datam = [
+    {
+      id: 1,
+      title: "Watch and enjoy fun, addicting and exhilarating videos",
+      subtext:
+        "Are you bored or tired? Do not fret! Download Discover.App and enjoy lots of entertainment to wash your boredom away. Just scroll through the unending fun gameplay & app preview videos. It is like TikTok and Twitch had a baby!",
+    },
+    {
+      id: 1,
+      title: "Curate your own rankings and share with your friends ",
+      subtext:
+        "Let’s get creative and put our editor’s hats on. Rank your favorite apps,  games, content & creators while sharing your rankings with your friends. You  may be rewarded as your rankings go viral. It is a social experience!",
+    },
+  ];
+
   const scroll = [
     {
       id: 1,
@@ -82,6 +113,25 @@ export default function Consumer() {
     },
   ];
 
+  const scrollm = [
+    {
+      id: 1,
+      title: "Curate your own top 10 rankings & share with your friends",
+    },
+    {
+      id: 1,
+      title: `Earn for completing tasks for brands`,
+    },
+    {
+      id: 3,
+      title: `Scroll through  interactive gameplay`,
+    },
+    {
+      id: 1,
+      title: `Download apps & games directly in your feed`,
+    },
+  ];
+
   return (
     <div className={styles.container}>
       <Head>
@@ -109,74 +159,137 @@ export default function Consumer() {
           arrows={false}
           pauseOnHover={false}
         >
-          {data.map((item, index) => {
-            return (
-              <section key={index} className={styles.hero}>
-                <div className={styles.herocontent}>
-                  <img src="1.png" alt="pagination" className={styles.page} />
-                  <h1>{item.title}</h1>
-                  <p>{item.subtext}</p>
-                  <div className={styles.herobtn}>Sign Up</div>
-                </div>
+          {width <= 600
+            ? datam.map((item, index) => {
+                return (
+                  <section key={index} className={styles.hero}>
+                    <div className={styles.herocontent}>
+                      <img
+                        src="1.png"
+                        alt="pagination"
+                        className={styles.page}
+                      />
+                      <h1>{item.title}</h1>
+                      <p>{item.subtext}</p>
+                      <div className={styles.herobtn}>Sign Up</div>
+                    </div>
 
-                <img className={styles.heroimg} src="chero1.png" alt="hero" />
-              </section>
-            );
-          })}
+                    <img className={styles.heroimg} src="cm1.png" alt="hero" />
+                  </section>
+                );
+              })
+            : data.map((item, index) => {
+                return (
+                  <section key={index} className={styles.hero}>
+                    <div className={styles.herocontent}>
+                      <img
+                        src="1.png"
+                        alt="pagination"
+                        className={styles.page}
+                      />
+                      <h1>{item.title}</h1>
+                      <p>{item.subtext}</p>
+                      <div className={styles.herobtn}>Sign Up</div>
+                    </div>
+
+                    <img
+                      className={styles.heroimg}
+                      src="chero1.png"
+                      alt="hero"
+                    />
+                  </section>
+                );
+              })}
         </Carousel>
       </main>
 
       <section className={styles.hero2}>
         <div className={styles.hero2content}>
           <h1>Start Discovering</h1>
-          <p>
-            Scroll through an interactive feed of apps or games and start
-            downloading directly from <br />
-            the AppStore, PlayStore or Amazon Store
-          </p>
+          {width <= 600 ? (
+            <p>
+              Scroll through an interactive feed of apps <br />
+              or games and start downloading directly from <br />
+              the AppStore, PlayStore or Amazon Store
+            </p>
+          ) : (
+            <p>
+              Scroll through an interactive feed of apps or games and start
+              downloading directly from <br />
+              the AppStore, PlayStore or Amazon Store
+            </p>
+          )}
         </div>
 
         <div className={styles.scroll}>
-          {scroll.map((item, index) => {
-            return (
-              <div
-                style={{
-                  backgroundImage: `url(opi${item.id}.png)`,
-                }}
-                key={index}
-                className={styles.scrollitem}
-              >
-                <h1>{item.title}</h1>
+          {width <= 600
+            ? scrollm.map((item, index) => {
+                return (
+                  <div
+                    style={{
+                      backgroundImage: `url(opi${item.id}.png)`,
+                    }}
+                    key={index}
+                    className={styles.scrollitem}
+                  >
+                    <h1>{item.title}</h1>
 
-                <img
-                  src={`pill${index + 1}.png`}
-                  alt="pill"
-                  className={styles.pill}
-                />
-              </div>
-            );
-          })}
+                    <img
+                      src={`pill${index + 1}.png`}
+                      alt="pill"
+                      className={styles.pill}
+                    />
+                  </div>
+                );
+              })
+            : scroll.map((item, index) => {
+                return (
+                  <div
+                    style={{
+                      backgroundImage: `url(opi${item.id}.png)`,
+                    }}
+                    key={index}
+                    className={styles.scrollitem}
+                  >
+                    <h1>{item.title}</h1>
+
+                    <img
+                      src={`pill${index + 1}.png`}
+                      alt="pill"
+                      className={styles.pill}
+                    />
+                  </div>
+                );
+              })}
         </div>
       </section>
 
       <section className={styles.hero3}>
         <div className={styles.hero3content}>
-          <h1>
-            Explore new <br />
-            apps & games <br />
-            with ease
-          </h1>
+          {width <= 600 ? (
+            <h1>Explore new apps & games with ease</h1>
+          ) : (
+            <h1>
+              Explore new <br />
+              apps & games <br />
+              with ease
+            </h1>
+          )}
           <div className={styles.hero3btn}>Sign Up</div>
         </div>
       </section>
       <section className={styles.hero32}>
         <div className={styles.hero3content2}>
-          <h1>
-            Discover.App is like
-            <br />
-            TikTok & Twitch had <br />a beautiful baby
-          </h1>
-          <div className={styles.hero3btn2}>Get Early Access</div>
+          {width <= 600 ? (
+            <h1>Discover.App is like TikTok & Twitch had a beautiful baby</h1>
+          ) : (
+            <h1>
+              Discover.App is like
+              <br />
+              TikTok & Twitch had <br />a beautiful baby
+            </h1>
+          )}
+          <div className={styles.hero3btn}>Sign Up</div>
         </div>
       </section>
 
@@ -194,13 +307,9 @@ export default function Consumer() {
       <footer className={styles.footer}>
         <div className={styles.footercontent}>
           <h1>
-            Keep your pulse on all great <br />
-            apps & games on the AppStore and <br />
-            PlayStore with{" "}
-            <span className={styles.yellow}>
-              Discover.App <br />
-              Join us!
-            </span>
+            The first token powered video discovery <br />
+            platform & community for everyone. <br />
+            <span className={styles.yellow}>Join Us!</span>
           </h1>
 
           <div className={styles.input}>
@@ -209,23 +318,55 @@ export default function Consumer() {
           </div>
         </div>
 
-        <nav className={styles.fnav}>
-          <div className={styles.fnavleft}>
-            <img className={styles.logo} src="logo.png" alt="logo" />
+        {width <= 600 ? (
+          <nav className={styles.fnav}>
+            <div className={styles.fnavleft}>
+              <img className={styles.logo} src="logo.png" alt="logo" />
 
-            <div className={styles.navlinks}>
-              <a href="#">
-                &copy; Discover.App 2022 / Terms of Use / Privacy Policy
-              </a>
+              <div className={styles.ftexts}>
+                The first video AppStore for discovering apps, <br />
+                games, contents & creators
+                <br />
+                <br />
+                &copy; Discover.App 2022
+              </div>
+
+              <strong>Company</strong>
+              <div className={styles.navlinks}>
+                <a href="#">Privacy</a>
+                <a href="#">Blog</a>
+                <a href="#">Help Center</a>
+                <a href="#">FAQ</a>
+                <a href="#">Team</a>
+                <a href="#">Terms of Service</a>
+              </div>
             </div>
-          </div>
-          <div className={styles.fnavright}>
-            <img className={styles.icon} src="yt.png" alt="logo" />
-            <img className={styles.icon} src="tk.png" alt="logo" />
-            <img className={styles.icon} src="ig.png" alt="logo" />
-            <img className={styles.icon} src="tw.png" alt="logo" />
-          </div>
-        </nav>
+            <div className={styles.fnavright}>
+              <img className={styles.icon} src="yt2.png" alt="logo" />
+              <img className={styles.icon} src="tk2.png" alt="logo" />
+              <img className={styles.icon} src="ig2.png" alt="logo" />
+              <img className={styles.icon} src="tw2.png" alt="logo" />
+            </div>
+          </nav>
+        ) : (
+          <nav className={styles.fnav}>
+            <div className={styles.fnavleft}>
+              <img className={styles.logo} src="logo.png" alt="logo" />
+
+              <div className={styles.navlinks}>
+                <a href="#">
+                  &copy; Discover.App 2022 / Terms of Use / Privacy Policy
+                </a>
+              </div>
+            </div>
+            <div className={styles.fnavright}>
+              <img className={styles.icon} src="yt.png" alt="logo" />
+              <img className={styles.icon} src="tk.png" alt="logo" />
+              <img className={styles.icon} src="ig.png" alt="logo" />
+              <img className={styles.icon} src="tw.png" alt="logo" />
+            </div>
+          </nav>
+        )}
       </footer>
 
       <Modal
