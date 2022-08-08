@@ -10,11 +10,17 @@ $vw-viewport: 1920;
 }
 
 .main {
-  height: get-vw(1069px);
+  height: get-vw(1401px);
   width: 100vw;
   //   background-image: url("/cbackground.png");
   //   background-size: 150%;
   //   background-position-y: get-vw(-300px);
+  background: url("/cbgl.png"), url("/cbgr.png");
+  background-repeat: no-repeat;
+  background-position-x: 0, 100%;
+  background-position-y: 100%, 0;
+  // background-color: red;
+  background-size: get-vw(534px), get-vw(554px);
 }
 
 .logo {
@@ -69,6 +75,10 @@ $vw-viewport: 1920;
   font-weight: bold;
   font-size: get-vw(24px);
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.herobtn:hover {
+  background-color: #2eefff;
 }
 .heroimg {
   width: get-vw(577.27px);
@@ -89,6 +99,7 @@ $vw-viewport: 1920;
   justify-content: center;
   align-items: center;
   margin-bottom: get-vw(136px);
+  margin-top: get-vw(245px);
 }
 .hero2content h1 {
   font-size: get-vw(95px);
@@ -178,6 +189,10 @@ $vw-viewport: 1920;
   font-weight: bold;
   font-size: get-vw(24px);
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.hero3btn:hover {
+  background-color: #2eefff;
 }
 
 .hero32 {
@@ -219,6 +234,10 @@ $vw-viewport: 1920;
   font-weight: bold;
   font-size: get-vw(24px);
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.hero3btn2:hover {
+  background-color: #2eefff;
 }
 
 .hero4 {
@@ -307,6 +326,10 @@ $vw-viewport: 1920;
   font-size: get-vw(24px);
   font-weight: bold;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.footerbtn:hover {
+  background-color: #2eefff;
 }
 .fnav {
   width: 100vw;

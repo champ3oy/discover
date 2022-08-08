@@ -55,6 +55,10 @@ $vw-viewport: 1920;
   align-items: center;
   font-weight: bold;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.navbtn:hover {
+  background-color: #2eefff;
 }
 .hero {
   padding: get-vw(1px) get-vw(133px) 0 get-vw(320px);
@@ -99,6 +103,10 @@ $vw-viewport: 1920;
   font-weight: bold;
   font-size: get-vw(24px);
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.herobtn:hover {
+  background-color: #2eefff;
 }
 .heroimg {
   width: get-vw(577.27px);
@@ -111,6 +119,7 @@ $vw-viewport: 1920;
   justify-content: center;
   align-items: center;
   padding-top: get-vw(129px);
+  padding-bottom: get-vw(129px);
   width: 100vw;
 }
 .hero2content {
@@ -188,6 +197,10 @@ $vw-viewport: 1920;
   font-weight: bold;
   font-size: get-vw(24px);
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.hero3btn:hover {
+  background-color: #2eefff;
 }
 
 .hero4 {
@@ -275,6 +288,10 @@ $vw-viewport: 1920;
   font-size: get-vw(24px);
   font-weight: bold;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.footerbtn:hover {
+  background-color: #2eefff;
 }
 .fnav {
   width: 100vw;
@@ -308,6 +325,25 @@ $vw-viewport: 1920;
   width: get-vw(92.8px);
   height: get-vw(7px);
   margin-bottom: get-vw(36px);
+}
+.pagination {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: get-vw(40px);
+}
+.paginationitem {
+  width: get-vw(20px);
+  height: get-vw(7px);
+  border-radius: 7px;
+  background-color: #f7f57b;
+  margin-right: get-vw(5px);
+}
+.paginationitemA {
+  width: get-vw(40px);
+  height: get-vw(7px);
+  border-radius: 7px;
+  background-color: #f7f57b;
+  margin-right: get-vw(5px);
 }
 
 @media (max-width: 768px) {

@@ -4,16 +4,18 @@ $vw-viewport: 1920;
   @return $font / $vw-context * 1vw;
   @return $font;
 }
-
+.overall {
+  width: 100vw;
+  min-height: 100vh;
+}
 .hero2imgs {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  padding: get-vw(90px) get-vw(0px);
-  background-image: url("/loadingbg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  padding: get-vw(0px) get-vw(0px);
+  position: fixed;
+  inset: 0;
 }
 .heroleft {
   width: get-vw(490.26px);
@@ -31,4 +33,94 @@ $vw-viewport: 1920;
   justify-content: center;
   align-items: center;
   display: flex;
+}
+.con {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  display: flex;
+  padding-top: 30vh;
+  height: 100vh;
+}
+.hm {
+  display: flex;
+  flex-direction: row;
+  width: get-vw(1000px);
+}
+.logo {
+  width: get-vw(215px);
+  height: get-vw(215px);
+  margin-right: get-vw(35px);
+}
+.texts h1 {
+  font-size: get-vw(125px);
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: get-vw(0px);
+  margin-top: get-vw(32px);
+}
+
+.texts p {
+  font-size: get-vw(24px);
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: get-vw(0px);
+}
+.ard {
+  width: get-vw(54px);
+  height: get-vw(54px);
+  margin-top: get-vw(0px);
+  margin-bottom: get-vw(35px);
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+  animation-name: ard;
+  animation-timing-function: linear;
+}
+
+@keyframes ard {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hero3btn {
+  width: get-vw(335px);
+  height: get-vw(84px);
+  background-color: #fffd2e;
+  color: #000;
+  border-radius: get-vw(11px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: get-vw(24px);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.hero3btn:hover {
+  background-color: #2eefff;
+}
+.hb {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: get-vw(130px);
+}
+.main {
+  position: fixed;
+  top: 100vh;
+  background-color: black;
+  overflow: scroll;
+  overflow-y: visible;
+  min-height: 100vh;
+  transition: 0.5s;
+  width: 100vw;
 }

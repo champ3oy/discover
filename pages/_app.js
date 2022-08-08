@@ -5,8 +5,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 function MyApp({ Component, pageProps }) {
-  const [loading, setloading] = useState(true);
+  const [loading, setloading] = useState(false);
   const [width, setwidth] = useState("");
+  const [heigth, setheigth] = useState(0);
 
   useEffect(() => {
     AOS.init({
@@ -19,17 +20,38 @@ function MyApp({ Component, pageProps }) {
         window.innerHeight ||
         document.documentElement.clientHeigh;
 
+      let heigth_ = window.innerHeight || document.documentElement.clientHeigh;
+
       setwidth(width_);
+      setheigth(heigth_);
     }
 
     setTimeout(() => {
-      setloading(false);
+      // setloading(false);
     }, 3000);
   }, []);
 
-  if (loading) {
-    return (
-      <div className={styles.hero2imgs}>
+  function scrollToWindow() {
+    // window.scrollTo({
+    //   top: heigth,
+    //   left: 0,
+    //   behavior: "smooth",
+    // });
+    // setTimeout(() => {
+    //   setloading(true);
+    // }, 2000);
+    document.getElementById("main").style.top = `0px`;
+    document.getElementById("main").style.position = "absolute";
+  }
+
+  return (
+    <div className={styles.overall}>
+      <div
+        style={{
+          display: loading ? "none" : "flex",
+        }}
+        className={styles.hero2imgs}
+      >
         <img
           data-aos="fade-right"
           className={styles.heroleft}
@@ -37,6 +59,31 @@ function MyApp({ Component, pageProps }) {
           alt="hero"
         />
 
+        <div className={styles.con}>
+          <div className={styles.hm}>
+            <img className={styles.logo} src="logo2.png" alt="hero" />
+            <div className={styles.texts}>
+              <h1>Discover.App</h1>
+              <p>
+                The power of engaged communities in discovering new apps, games,
+                contents and creators
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.hb}>
+            <img className={styles.ard} src="ard.png" alt="hero" />
+
+            <div
+              onClick={() => {
+                scrollToWindow();
+              }}
+              className={styles.hero3btn}
+            >
+              Enter the experience
+            </div>
+          </div>
+        </div>
         <img
           data-aos="fade-left"
           className={styles.heroright}
@@ -44,10 +91,11 @@ function MyApp({ Component, pageProps }) {
           alt="hero"
         />
       </div>
-    );
-  }
-
-  return <Component {...pageProps} />;
+      <div id="main" className={styles.main}>
+        <Component {...pageProps} />
+      </div>
+    </div>
+  );
 }
 
 export default MyApp;

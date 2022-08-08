@@ -119,10 +119,12 @@ export default function Creator() {
           showArrows={false}
           showStatus={false}
           autoPlaySpeed={10000}
-          showDots={false}
+          showDots={true}
           swipeable={true}
           arrows={false}
           pauseOnHover={false}
+          // fade animation
+          customTransition="fade"
         >
           <section className={styles.hero}>
             <div className={styles.herocontent}>
@@ -158,9 +160,7 @@ export default function Creator() {
             </div>
           </section>
         </Carousel>
-      </main>
 
-      <section className={styles.hero2}>
         <div className={styles.hero2content}>
           <h1>Post & get discovered</h1>
           {width <= 600 ? (
@@ -179,7 +179,9 @@ export default function Creator() {
             </p>
           )}
         </div>
+      </main>
 
+      <section className={styles.hero2}>
         <div className={styles.scroll}>
           {[1, 2, 3, 4, 5].map((item, index) => {
             return (

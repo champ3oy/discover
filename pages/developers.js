@@ -3,19 +3,21 @@ import styles from "../styles/Home.module.scss";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Nav from "../components/Nav";
 import Modal from "../components/Modal";
+import Pagination from "../components/Pagination";
 
 export default function Developers() {
   const [showModal, setShowModal] = useState(false);
   const [width, setwidth] = useState("");
+  const sliderRef = useRef(null);
 
   useEffect(() => {
     AOS.init({
-      offset: 100,
+      offset: 500,
     });
 
     if (typeof window !== "undefined") {
@@ -63,6 +65,7 @@ export default function Developers() {
         />
 
         <Carousel
+          ref={sliderRef}
           responsive={responsive}
           autoPlay={true}
           infinite={true}
@@ -76,7 +79,7 @@ export default function Developers() {
         >
           <section className={styles.hero}>
             <div className={styles.herocontent}>
-              <img src="1.png" alt="pagination" className={styles.page} />
+              <Pagination page={1} sliderRef={sliderRef} />
               <h1>
                 Showcase your <br />
                 apps and games <br />
@@ -88,14 +91,21 @@ export default function Developers() {
                 looks <br />& feels by watching the video previews before
                 downloading
               </p>
-              <div className={styles.herobtn}>Sign Up</div>
+              <div
+                onClick={() => {
+                  sliderRef.current.next();
+                }}
+                className={styles.herobtn}
+              >
+                Sign Up
+              </div>
             </div>
 
             <img className={styles.heroimg} src="hero1.png" alt="hero" />
           </section>
           <section className={styles.hero}>
             <div className={styles.herocontent}>
-              <img src="2.png" alt="pagination" className={styles.page} />
+              <Pagination page={2} sliderRef={sliderRef} />
               <h1>
                 User acquisition
                 <br />
@@ -117,7 +127,7 @@ export default function Developers() {
           </section>
           <section className={styles.hero}>
             <div className={styles.herocontent}>
-              <img src="3.png" alt="pagination" className={styles.page} />
+              <Pagination page={3} sliderRef={sliderRef} />
               <h1>
                 Seed your game <br />
                 with users free of <br />
@@ -155,9 +165,21 @@ export default function Developers() {
           </div>
         ) : (
           <div className={styles.hero2imgs}>
-            <img className={styles.heroleft} src="heroleft.png" alt="hero" />
+            <img
+              data-aos="fade-up"
+              // data-aos-delay="100"
+              className={styles.heroleft}
+              src="heroleft.png"
+              alt="hero"
+            />
             <img className={styles.herom} src="herom.png" alt="hero" />
-            <img className={styles.heroright} src="heroright.png" alt="hero" />
+            <img
+              data-aos="fade-up"
+              // data-aos-delay="100"
+              className={styles.heroright}
+              src="heroright.png"
+              alt="hero"
+            />
           </div>
         )}
       </section>

@@ -133,6 +133,7 @@ export default function Creator() {
                   data-aos-delay="100"
                   src="/wombo.png"
                   alt="icon"
+                  data-aos-mirror="false"
                 />
                 <img
                   data-aos="fade-down"

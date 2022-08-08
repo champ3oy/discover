@@ -74,6 +74,10 @@ $vw-viewport: 1920;
   font-weight: bold;
   font-size: get-vw(24px);
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.herobtn:hover {
+  background-color: #2eefff;
 }
 .heroimg {
   width: get-vw(577.27px);
@@ -134,6 +138,10 @@ $vw-viewport: 1920;
   font-weight: bold;
   font-size: get-vw(24px);
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.hero3btn:hover {
+  background-color: #2eefff;
 }
 
 .hero32 {
@@ -190,6 +198,10 @@ $vw-viewport: 1920;
   font-weight: bold;
   font-size: get-vw(24px);
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.hero3btn2:hover {
+  background-color: #2eefff;
 }
 
 .footer {
@@ -257,6 +269,10 @@ $vw-viewport: 1920;
   font-size: get-vw(24px);
   font-weight: bold;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.footerbtn:hover {
+  background-color: #2eefff;
 }
 .fnav {
   width: 100vw;

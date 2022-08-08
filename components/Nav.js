@@ -62,7 +62,7 @@ export default function Nav({ onPress = () => {} }) {
               }}
               href="#"
             >
-              Consumer
+              Consumer & Superfans
             </a>
           </Link>
           <Link href="/creators">

@@ -3,15 +3,17 @@ import styles from "../styles/Consumer.module.scss";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Nav from "../components/Nav";
 import Modal from "../components/Modal";
+import Pagination from "../components/Pagination";
 
 export default function Consumer() {
   const [showModal, setShowModal] = useState(false);
   const [width, setwidth] = useState("");
+  const sliderRef = useRef(null);
 
   useEffect(() => {
     AOS.init({
@@ -164,11 +166,7 @@ export default function Consumer() {
                 return (
                   <section key={index} className={styles.hero}>
                     <div className={styles.herocontent}>
-                      <img
-                        src="1.png"
-                        alt="pagination"
-                        className={styles.page}
-                      />
+                      <Pagination page={index + 1} sliderRef={sliderRef} />
                       <h1>{item.title}</h1>
                       <p>{item.subtext}</p>
                       <div className={styles.herobtn}>Sign Up</div>
@@ -182,11 +180,7 @@ export default function Consumer() {
                 return (
                   <section key={index} className={styles.hero}>
                     <div className={styles.herocontent}>
-                      <img
-                        src="1.png"
-                        alt="pagination"
-                        className={styles.page}
-                      />
+                      <Pagination page={index + 1} sliderRef={sliderRef} />
                       <h1>{item.title}</h1>
                       <p>{item.subtext}</p>
                       <div className={styles.herobtn}>Sign Up</div>
@@ -278,20 +272,50 @@ export default function Consumer() {
           <div className={styles.hero3btn}>Sign Up</div>
         </div>
       </section>
-      <section className={styles.hero32}>
-        <div className={styles.hero3content2}>
-          {width <= 600 ? (
-            <h1>Discover.App is like TikTok & Twitch had a beautiful baby</h1>
-          ) : (
-            <h1>
-              Discover.App is like
-              <br />
-              TikTok & Twitch had <br />a beautiful baby
-            </h1>
-          )}
-          <div className={styles.hero3btn}>Sign Up</div>
-        </div>
-      </section>
+      <Carousel
+        responsive={responsive}
+        autoPlay={true}
+        infinite={true}
+        showArrows={false}
+        showStatus={false}
+        autoPlaySpeed={10000}
+        showDots={false}
+        swipeable={true}
+        arrows={false}
+        pauseOnHover={false}
+      >
+        <section className={styles.hero32}>
+          <div className={styles.hero3content2}>
+            {width <= 600 ? (
+              <h1>Discover.App is like TikTok & Twitch had a beautiful baby</h1>
+            ) : (
+              <h1>
+                Discover.App is like
+                <br />
+                TikTok & Twitch had <br />a beautiful baby
+              </h1>
+            )}
+            <div className={styles.hero3btn}>Sign Up</div>
+          </div>
+        </section>
+        <section className={styles.hero32}>
+          <div className={styles.hero3content2}>
+            {width <= 600 ? (
+              <h1>
+                {" "}
+                <br />
+              </h1>
+            ) : (
+              <h1>
+                TikTok for <br />
+                gameplay videos <br />
+                and app previews
+              </h1>
+            )}
+            <div className={styles.hero3btn}>Sign Up</div>
+          </div>
+        </section>
+      </Carousel>
 
       <section className={styles.hero4}>
         <div className={styles.hero4content}>
