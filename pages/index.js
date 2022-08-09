@@ -106,7 +106,7 @@ export default function Creator() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <section className={styles.main}>
         <Nav
           onPress={() => {
             setShowModal(true);
@@ -190,7 +190,7 @@ export default function Creator() {
             </div>
           </section>
         </Carousel>
-      </main>
+      </section>
 
       <section className={styles.hero3}>
         <img src="/h3.png" alt="hero3" />

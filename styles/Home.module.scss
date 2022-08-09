@@ -41,7 +41,7 @@ $vw-viewport: 1920;
   font-weight: 600;
 }
 .navlinks a {
-  margin-right: get-vw(38px);
+  margin-right: get-vw(30px);
   cursor: pointer;
 }
 .navbtn {
@@ -114,6 +114,7 @@ $vw-viewport: 1920;
 }
 
 .hero2 {
+  // scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: center;

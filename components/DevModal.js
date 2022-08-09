@@ -22,7 +22,11 @@ export default function DevModal() {
         value=""
       />
       <Input label="Email Address" placeholder="name@email.com" value="" />
-
+      <Input
+        label="What is your current location?"
+        placeholder="Pick your country"
+        value=""
+      />
       <Dropdown
         label="What kind of developer or publisher are you?"
         placeholder="Pick a type"

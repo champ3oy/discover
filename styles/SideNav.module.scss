@@ -1,0 +1,64 @@
+$vw-viewport: 390;
+@function get-vw($font) {
+  $vw-context: $vw-viewport * 0.01 * 1px;
+  @return $font / $vw-context * 1vw;
+  @return $font;
+}
+
+.con {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  padding: get-vw(60px) get-vw(15px);
+  top: -100vh;
+  transition: 0.3s ease-in-out;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navright {
+  cursor: pointer;
+}
+
+.nav2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: solid 2px white;
+  border-bottom-color: black;
+  border-bottom-width: get-vw(1px);
+  height: fit-content;
+  padding: get-vw(20px) get-vw(15px);
+}
+.nav2 h1 {
+  color: black;
+  font-size: get-vw(29px);
+  width: 60%;
+}
+
+.nav3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: black;
+  height: fit-content;
+  padding: get-vw(20px) 0;
+  background-color: #fffd2e;
+  border-radius: get-vw(20px);
+  height: get-vw(104px);
+  padding: 0 get-vw(15px);
+  margin-top: get-vw(25px);
+}
+.nav3 h1 {
+  color: black;
+  font-size: get-vw(29px);
+  width: 60%;
+}

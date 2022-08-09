@@ -30,12 +30,13 @@ $vw-viewport: 1920;
 }
 
 .hero {
-  padding: get-vw(122px) get-vw(0px) 0 get-vw(0px);
+  padding: get-vw(0px) get-vw(0px) 0 get-vw(0px);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100vw;
+  height: 80vh;
 }
 
 .herocontent {
@@ -117,7 +118,7 @@ $vw-viewport: 1920;
   justify-content: flex-start;
   align-items: flex-start;
   width: 100vw;
-  padding: get-vw(0px) get-vw(0px) get-vw(0px) get-vw(35px);
+  padding: get-vw(100px) get-vw(0px) get-vw(0px) get-vw(35px);
   margin-bottom: get-vw(203px);
   overflow-x: scroll;
   overflow: scroll;
@@ -364,6 +365,22 @@ $vw-viewport: 1920;
   height: get-vw(7px);
   margin-bottom: get-vw(36px);
 }
+.active {
+  width: get-vw(20px);
+  height: get-vw(20px);
+  border-radius: 100%;
+  background-color: #fffd2e;
+  margin: 0 get-vw(3.5px);
+  margin-bottom: get-vw(50px);
+}
+.inactive {
+  width: get-vw(20px);
+  height: get-vw(20px);
+  border-radius: 100%;
+  background-color: #707070;
+  margin: 0 get-vw(3.5px);
+  margin-bottom: get-vw(50px);
+}
 
 @media (max-width: 768px) {
   $vw-viewport: 390;
@@ -424,6 +441,7 @@ $vw-viewport: 1920;
   .main {
     height: get-vw(1122px);
     width: 100vw;
+    background-image: none;
   }
   .hero {
     padding: get-vw(40px) get-vw(0px) 0 get-vw(0px);
@@ -510,8 +528,9 @@ $vw-viewport: 1920;
     align-items: flex-start;
     padding-top: get-vw(50px);
     width: 100vw;
-    height: get-vw(700px);
-    padding: 0 get-vw(15px);
+    height: get-vw(350px);
+    padding: 0 get-vw(30px);
+    overflow-x: hidden;
   }
   .hero2content {
     display: flex;
@@ -531,11 +550,27 @@ $vw-viewport: 1920;
     font-size: get-vw(12px);
     font-weight: 400;
     text-align: center;
+    padding: 0 get-vw(15px);
   }
   .scroll {
     transform: scale(1.9);
-    margin-top: get-vw(100px);
+    margin-top: get-vw(10px);
+    overflow-x: hidden;
+    padding-top: get-vw(50px);
+    height: get-vw(200px);
+
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: flex-start;
+    // align-items: flex-start;
+    // // width: 100vw;
+    // padding: get-vw(10px) get-vw(0px) get-vw(0px) get-vw(35px);
+    // margin-bottom: get-vw(203px);
+    // overflow-x: scroll;
+    // overflow: scroll;
+    // height: get-vw(820px);
   }
+
   .hero3 {
     background-color: #fffd2e;
     height: get-vw(811px);

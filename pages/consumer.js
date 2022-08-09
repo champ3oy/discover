@@ -3,7 +3,7 @@ import styles from "../styles/Consumer.module.scss";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Nav from "../components/Nav";
@@ -14,6 +14,25 @@ export default function Consumer() {
   const [showModal, setShowModal] = useState(false);
   const [width, setwidth] = useState("");
   const sliderRef = useRef(null);
+
+  const [scrollY, setScrollY] = useState(0);
+
+  const onScroll = useCallback((event) => {
+    const { pageYOffset, scrollY } = window;
+    // console.log("yOffset", pageYOffset, "scrollY", scrollY);
+
+    if (scrollY > 700) {
+      window.document.getElementById("scroll").scroll(scrollY - 700, 0);
+    }
+    setScrollY(window.pageYOffset);
+  }, []);
+
+  useEffect(() => {
+    //add eventlistener to window
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // remove event on unmount to prevent a memory leak with the cleanup
+    // return window.removeEventListener("scroll", onScroll, { passive: true });
+  }, []);
 
   useEffect(() => {
     AOS.init({
@@ -215,7 +234,7 @@ export default function Consumer() {
           )}
         </div>
 
-        <div className={styles.scroll}>
+        <div id="scroll" className={styles.scroll}>
           {width <= 600
             ? scrollm.map((item, index) => {
                 return (
@@ -272,19 +291,21 @@ export default function Consumer() {
           <div className={styles.hero3btn}>Sign Up</div>
         </div>
       </section>
-      <Carousel
-        responsive={responsive}
-        autoPlay={true}
-        infinite={true}
-        showArrows={false}
-        showStatus={false}
-        autoPlaySpeed={10000}
-        showDots={false}
-        swipeable={true}
-        arrows={false}
-        pauseOnHover={false}
-      >
-        <section className={styles.hero32}>
+
+      <section className={styles.hero32}>
+        <Carousel
+          responsive={responsive}
+          autoPlay={true}
+          infinite={true}
+          showArrows={false}
+          showStatus={false}
+          autoPlaySpeed={8000}
+          showDots={false}
+          swipeable={true}
+          arrows={false}
+          pauseOnHover={false}
+          containerClass={styles.car}
+        >
           <div className={styles.hero3content2}>
             {width <= 600 ? (
               <h1>Discover.App is like TikTok & Twitch had a beautiful baby</h1>
@@ -297,14 +318,9 @@ export default function Consumer() {
             )}
             <div className={styles.hero3btn}>Sign Up</div>
           </div>
-        </section>
-        <section className={styles.hero32}>
           <div className={styles.hero3content2}>
             {width <= 600 ? (
-              <h1>
-                {" "}
-                <br />
-              </h1>
+              <h1>TikTok for gameplay videos and app previews</h1>
             ) : (
               <h1>
                 TikTok for <br />
@@ -314,18 +330,7 @@ export default function Consumer() {
             )}
             <div className={styles.hero3btn}>Sign Up</div>
           </div>
-        </section>
-      </Carousel>
-
-      <section className={styles.hero4}>
-        <div className={styles.hero4content}>
-          <h1>
-            Get paid <br />
-            for performing
-            <br />
-            tasks
-          </h1>
-        </div>
+        </Carousel>
       </section>
 
       <footer className={styles.footer}>

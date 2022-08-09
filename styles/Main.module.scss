@@ -7,11 +7,18 @@ $vw-viewport: 1920;
 
 .container {
   color: white;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(300px);
+  scroll-snap-type: y mandatory;
 }
 
 .main {
   height: get-vw(1080px);
   width: 100vw;
+  scroll-snap-align: start;
 }
 .logo {
   width: get-vw(195px);
@@ -85,6 +92,7 @@ $vw-viewport: 1920;
 }
 
 .hero3 {
+  scroll-snap-align: start;
   background-color: #fffd2e;
   height: get-vw(1070px);
   width: 100vw;
@@ -145,6 +153,7 @@ $vw-viewport: 1920;
 }
 
 .hero32 {
+  scroll-snap-align: start;
   background-color: #fff;
   height: get-vw(1070px);
   width: 100vw;
@@ -205,6 +214,7 @@ $vw-viewport: 1920;
 }
 
 .footer {
+  scroll-snap-align: start;
   height: get-vw(900px);
   width: 100vw;
   display: flex;

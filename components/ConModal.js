@@ -19,6 +19,12 @@ export default function ConModal() {
       <Input label="Your Name" placeholder="Type your name here" value="" />
       <Input label="Email Address" placeholder="name@email.com" value="" />
 
+      <Input
+        label="What is your current location?"
+        placeholder="Pick your country"
+        value=""
+      />
+
       <Dropdown
         label="What would you want to discover?"
         placeholder="Pick what you will like to discover"

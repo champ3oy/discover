@@ -52,18 +52,31 @@ function MyApp({ Component, pageProps }) {
         }}
         className={styles.hero2imgs}
       >
-        <img
-          data-aos="fade-right"
-          className={styles.heroleft}
-          src="l2.png"
-          alt="hero"
-        />
+        {width < 600 ? (
+          <img
+            data-aos="fade-right"
+            className={styles.heroleft}
+            src="lm1.png"
+            alt="hero"
+          />
+        ) : (
+          <img
+            data-aos="fade-right"
+            className={styles.heroleft}
+            src="l2.png"
+            alt="hero"
+          />
+        )}
 
         <div className={styles.con}>
           <div className={styles.hm}>
-            <img className={styles.logo} src="logo2.png" alt="hero" />
+            {width < 600 ? (
+              <img className={styles.logo} src="logo.png" alt="hero" />
+            ) : (
+              <img className={styles.logo} src="logo2.png" alt="hero" />
+            )}
             <div className={styles.texts}>
-              <h1>Discover.App</h1>
+              {width < 600 ? null : <h1>Discover.App</h1>}
               <p>
                 The power of engaged communities in discovering new apps, games,
                 contents and creators
@@ -84,12 +97,21 @@ function MyApp({ Component, pageProps }) {
             </div>
           </div>
         </div>
-        <img
-          data-aos="fade-left"
-          className={styles.heroright}
-          src="l1.png"
-          alt="hero"
-        />
+        {width < 600 ? (
+          <img
+            data-aos="fade-left"
+            className={styles.heroright}
+            src="lm2.png"
+            alt="hero"
+          />
+        ) : (
+          <img
+            data-aos="fade-left"
+            className={styles.heroright}
+            src="l1.png"
+            alt="hero"
+          />
+        )}
       </div>
       <div id="main" className={styles.main}>
         <Component {...pageProps} />
