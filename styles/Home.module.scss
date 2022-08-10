@@ -346,6 +346,19 @@ $vw-viewport: 1920;
   background-color: #f7f57b;
   margin-right: get-vw(5px);
 }
+.textimg {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+.textimg h1 {
+  margin: 0 get-vw(20px);
+}
+.icons2,
+.icons23 {
+  width: get-vw(98px);
+  height: get-vw(93px);
+}
 
 @media (max-width: 768px) {
   $vw-viewport: 390;
@@ -677,7 +690,7 @@ $vw-viewport: 1920;
   .hero4 {
     width: 100vw;
     height: get-vw(811px);
-    background-image: url("/bighero2.png");
+    background-image: url("/bigherom.png");
     background-repeat: no-repeat;
     background-position-x: 50%;
     background-size: cover;
@@ -814,5 +827,19 @@ $vw-viewport: 1920;
     width: get-vw(92.8px);
     height: get-vw(7px);
     margin-bottom: get-vw(36px);
+  }
+  .textimg {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    padding: 0 get-vw(15px);
+  }
+  .textimg h1 {
+    margin: 0 get-vw(10px);
+  }
+  .icons2,
+  .icons23 {
+    width: get-vw(50px);
+    height: get-vw(50px);
   }
 }

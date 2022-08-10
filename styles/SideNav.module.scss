@@ -17,6 +17,8 @@ $vw-viewport: 390;
     @return $font;
   }
   .con {
+    display: flex;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
     background-color: white;

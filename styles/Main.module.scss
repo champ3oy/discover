@@ -10,15 +10,15 @@ $vw-viewport: 1920;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
-  scroll-snap-type: mandatory;
-  scroll-snap-points-y: repeat(300px);
-  scroll-snap-type: y mandatory;
+  // scroll-snap-type: mandatory;
+  // scroll-snap-points-y: repeat(300px);
+  // scroll-snap-type: y mandatory;
 }
 
 .main {
   height: get-vw(1080px);
   width: 100vw;
-  scroll-snap-align: start;
+  // scroll-snap-align: start;
 }
 .logo {
   width: get-vw(195px);
@@ -92,7 +92,7 @@ $vw-viewport: 1920;
 }
 
 .hero3 {
-  scroll-snap-align: start;
+  // scroll-snap-align: start;
   background-color: #fffd2e;
   height: get-vw(1070px);
   width: 100vw;
@@ -134,6 +134,10 @@ $vw-viewport: 1920;
   line-height: 0.9;
   margin-bottom: get-vw(33px);
 }
+.btnrow {
+  display: flex;
+  flex-direction: row;
+}
 .hero3btn {
   width: get-vw(283px);
   height: get-vw(84px);
@@ -147,17 +151,34 @@ $vw-viewport: 1920;
   font-size: get-vw(24px);
   cursor: pointer;
   transition: 0.2s ease-in-out;
+  margin-right: get-vw(5px);
 }
 .hero3btn:hover {
   background-color: #2eefff;
 }
+.hero3btno {
+  width: get-vw(283px);
+  height: get-vw(84px);
+  background-color: transparent;
+  color: #000;
+  border: 2px solid black;
+  border-radius: get-vw(11px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: get-vw(24px);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  margin-right: get-vw(5px);
+}
 
 .hero32 {
-  scroll-snap-align: start;
+  // scroll-snap-align: start;
   background-color: #fff;
   height: get-vw(1070px);
   width: 100vw;
-  background-image: url("/background.png");
+  background-image: url("/mainbg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: 0;
@@ -214,7 +235,7 @@ $vw-viewport: 1920;
 }
 
 .footer {
-  scroll-snap-align: start;
+  // scroll-snap-align: start;
   height: get-vw(900px);
   width: 100vw;
   display: flex;
@@ -439,6 +460,7 @@ $vw-viewport: 1920;
     margin-bottom: get-vw(33px);
     text-align: center;
   }
+
   .hero3btn {
     width: get-vw(162px);
     height: get-vw(48.5px);

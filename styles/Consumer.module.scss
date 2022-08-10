@@ -228,7 +228,7 @@ $vw-viewport: 1920;
   background-color: #fff;
   height: get-vw(664px);
   width: 100vw;
-  background-image: url("/cban2.png"), url("/background.png");
+  background-image: url("/cban2.png"), url("/background2.png");
   background-size: get-vw(480px), cover;
   background-repeat: no-repeat;
   background-position-x: 90%, 0;
@@ -392,6 +392,19 @@ $vw-viewport: 1920;
 }
 .car {
   width: 70%;
+}
+.textimg {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+.textimg h1 {
+  margin: 0 get-vw(20px);
+}
+.icons2,
+.icons23 {
+  width: get-vw(98px);
+  height: get-vw(93px);
 }
 
 @media (max-width: 768px) {
@@ -604,7 +617,7 @@ $vw-viewport: 1920;
     background-color: #fff;
     height: get-vw(811px);
     width: 100vw;
-    background-image: url("/cc2.png"), url("/background.png");
+    background-image: url("/cc2.png"), url("/background2.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 0;
@@ -662,7 +675,7 @@ $vw-viewport: 1920;
   .hero4 {
     width: 100vw;
     height: get-vw(811px);
-    background-image: url("/bighero2.png");
+    background-image: url("/bighero2m.png");
     background-repeat: no-repeat;
     background-position-x: 50%;
     background-size: cover;
@@ -799,5 +812,23 @@ $vw-viewport: 1920;
     width: get-vw(92.8px);
     height: get-vw(7px);
     margin-bottom: get-vw(36px);
+  }
+  .car {
+    width: 100%;
+    margin-top: get-vw(-400px);
+  }
+  .textimg {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    padding: 0 get-vw(15px);
+  }
+  .textimg h1 {
+    margin: 0 get-vw(10px);
+  }
+  .icons2,
+  .icons23 {
+    width: get-vw(50px);
+    height: get-vw(50px);
   }
 }

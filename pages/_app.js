@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 
 function MyApp({ Component, pageProps }) {
   const [loading, setloading] = useState(false);
-  const [width, setwidth] = useState("");
+  const [width, setwidth] = useState(0);
   const [heigth, setheigth] = useState(0);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps }) {
         }}
         className={styles.hero2imgs}
       >
-        {width < 600 ? (
+        {width > 1 && width < 600 ? (
           <img
             data-aos="fade-right"
             className={styles.heroleft}
@@ -70,7 +70,7 @@ function MyApp({ Component, pageProps }) {
 
         <div className={styles.con}>
           <div className={styles.hm}>
-            {width < 600 ? (
+            {width > 1 && width < 600 ? (
               <img className={styles.logo} src="logo.png" alt="hero" />
             ) : (
               <img className={styles.logo} src="logo2.png" alt="hero" />
