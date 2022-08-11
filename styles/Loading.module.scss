@@ -144,7 +144,7 @@ $vw-viewport: 1920;
     align-items: flex-start;
     width: 100vw;
     height: 100vh;
-    padding: get-vw(115px) get-vw(0px);
+    padding: get-vw(0px) get-vw(0px);
     position: fixed;
     inset: 0;
   }
@@ -152,11 +152,13 @@ $vw-viewport: 1920;
     width: get-vw(221px);
     height: get-vw(256px);
     margin-left: get-vw(-89px);
+    margin-top: 10vh;
   }
   .heroright {
     width: get-vw(221px);
     height: get-vw(256px);
     margin-right: get-vw(-89px);
+    margin-top: 10vh;
   }
   .herom {
     width: 100%;
@@ -168,13 +170,15 @@ $vw-viewport: 1920;
   .con {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     display: flex;
-    padding-top: 10vh;
-    height: 100vh;
+    padding-top: 0vh;
+    height: 100%;
     // background-color: aquamarine;
     position: absolute;
+    padding-bottom: get-vw(90px);
+    z-index: 999;
   }
   .hm {
     display: flex;
@@ -250,7 +254,7 @@ $vw-viewport: 1920;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: get-vw(130px);
+    margin-top: 10vh;
   }
   .main {
     position: fixed;

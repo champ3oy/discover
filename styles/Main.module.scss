@@ -476,6 +476,21 @@ $vw-viewport: 1920;
     font-size: get-vw(12px);
     cursor: pointer;
   }
+  .hero3btno {
+    width: get-vw(162px);
+    height: get-vw(48.5px);
+    background-color: transparent;
+    color: #000;
+    border-radius: get-vw(11px);
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: get-vw(12px);
+    cursor: pointer;
+    margin-left: get-vw(5px);
+  }
 
   .hero32 {
     background-color: #fff;

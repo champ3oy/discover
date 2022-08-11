@@ -550,6 +550,7 @@ $vw-viewport: 1920;
     height: get-vw(350px);
     padding: 0 get-vw(30px);
     overflow-x: hidden;
+    margin-top: get-vw(-1px);
   }
   .hero2content {
     display: flex;

@@ -495,6 +495,7 @@ $vw-viewport: 1920;
     padding-top: get-vw(30px);
     width: 100vw;
     height: get-vw(553px);
+    margin-top: get-vw(-1px);
   }
   .hero2content {
     display: flex;
