@@ -78,8 +78,9 @@ function MyApp({ Component, pageProps }) {
             <div className={styles.texts}>
               {width < 600 ? null : <h1>Discover.App</h1>}
               <p>
-                The power of engaged communities in discovering new apps, games,
-                contents, creators, products and brands
+                The power of an engaged community in discovering new apps,
+                games, <br />
+                contents, creators, products, tokens, NFTs and brands
               </p>
             </div>
           </div>
