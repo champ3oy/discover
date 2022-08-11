@@ -289,47 +289,146 @@ $vw-viewport: 1920;
     text-align: center;
     // background-color: #fff;
   }
+
   .inputcon {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: get-vw(10px);
+    margin-bottom: get-vw(15px);
   }
   .inputcon label {
-    font-size: get-vw(13px);
+    font-size: get-vw(14px);
     font-weight: 500;
     color: #000;
     margin-bottom: get-vw(6px);
   }
-  .inputcon input {
+  .inputgroup {
     width: 100%;
-    height: get-vw(50px);
+    height: get-vw(55px);
     border-radius: get-vw(15px);
     border: 1px solid black;
     background-color: transparent;
     padding: 0 get-vw(15px);
-    font-size: get-vw(14px);
+    font-size: get-vw(15px);
     font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+  }
+  .inputgroup h1 {
+    color: black;
+    padding-top: get-vw(15px);
+    margin-right: get-vw(10px);
+    font-size: get-vw(15px);
+  }
+  .inputgroup input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    // padding: 0 get-vw(30px);
+    font-size: get-vw(15px);
+    font-weight: 500;
+    font-family: "Space Grotesk", sans-serif;
   }
 
   .inputcon select {
     width: 100%;
-    height: get-vw(50px);
+    height: get-vw(55px);
     border-radius: get-vw(15px);
     border: 1px solid black;
     background-color: transparent;
     padding: 0 get-vw(15px);
-    font-size: get-vw(14px);
+    font-size: get-vw(15px);
     font-weight: 500;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("/ardb.png");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: get-vw(14px);
+    background-position: right center;
+    background-position-x: 95%;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: get-vw(15px);
+  }
+  .inputcon select:invalid,
+  .inputcon input::placeholder {
+    color: #c1c1c1;
+  }
+
+  .inputadd {
+    width: 100%;
+    height: get-vw(55px);
+    border-radius: get-vw(15px);
+    border: 1px solid black;
+    background-color: transparent;
+    font-size: get-vw(15px);
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .inputadd input {
+    width: 80%;
+    height: get-vw(55px);
+    border-radius: get-vw(15px);
+    border: 0px solid black;
+    background-color: transparent;
+    padding: 0 get-vw(15px);
+    font-size: get-vw(15px);
+    font-weight: 500;
+    font-family: "Space Grotesk", sans-serif;
+  }
+  .inputadd div {
+    width: 20%;
+    height: get-vw(55px);
+    border-radius: get-vw(15px);
+    background-color: black;
+    font-size: get-vw(15px);
+    font-weight: 500;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .inputbool {
+    width: 100%;
+    height: get-vw(55px);
+
+    background-color: transparent;
+    font-size: get-vw(16px);
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .inputbool div {
+    width: 49.5%;
+    height: get-vw(55px);
+    border-radius: get-vw(15px);
+    background-color: transparent;
+    font-size: get-vw(17px);
+    font-weight: 500;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: get-vw(22px);
+    border: 1px solid black;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 17px;
   }
   .modalbtn2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: get-vw(60px);
-    border-radius: get-vw(18px);
-    font-size: get-vw(13px);
-    font-weight: old;
+    height: get-vw(75px);
+    border-radius: get-vw(19px);
+    font-size: get-vw(15px);
+    font-weight: bold;
     cursor: pointer;
     width: 100%;
     text-align: center;
@@ -337,12 +436,30 @@ $vw-viewport: 1920;
     background-color: #000;
     margin-top: get-vw(15px);
   }
+  .modalbtn3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: get-vw(75px);
+    border-radius: get-vw(19px);
+    font-size: get-vw(15px);
+    font-weight: bold;
+    cursor: not-allowed;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    background-color: #e0e0e0;
+    margin-top: get-vw(15px);
+  }
   .x {
-    width: get-vw(20px);
-    height: get-vw(20px);
+    width: get-vw(29.25px);
+    height: get-vw(29.25px);
     position: absolute;
     top: get-vw(10px);
     right: get-vw(10px);
     cursor: pointer;
+  }
+  .spacer {
+    height: get-vw(13px);
   }
 }
