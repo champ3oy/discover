@@ -79,8 +79,7 @@ function MyApp({ Component, pageProps }) {
               {width < 600 ? null : <h1>Discover.App</h1>}
               <p>
                 The power of an engaged community in discovering new apps,
-                games, <br />
-                contents, creators, products, tokens, NFTs and brands
+                games, contents, creators, products, tokens, NFTs and brands
               </p>
             </div>
           </div>
