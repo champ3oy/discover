@@ -7,7 +7,7 @@ import InputAdd from "./InputAdd";
 import InputBool from "./InputBool";
 import InputDouble from "./InputDouble";
 
-export default function CreModal({ temail }) {
+export default function CreModal({ temail, onclose = () => {} }) {
   const router = useRouter();
   const [active, setActive] = React.useState("");
   const [loading, setloading] = React.useState(false);
@@ -174,6 +174,7 @@ export default function CreModal({ temail }) {
                 console.log(newItem);
                 if (res.status == "200") {
                   setloading(false);
+                  onclose();
                 } else {
                   setloading(false);
                 }

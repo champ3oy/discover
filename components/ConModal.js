@@ -6,7 +6,7 @@ import Button from "./Button";
 import InputAdd from "./InputAdd";
 import InputBool from "./InputBool";
 
-export default function ConModal({ temail }) {
+export default function ConModal({ temail, onclose = () => {} }) {
   const router = useRouter();
   const [active, setActive] = React.useState("");
   const [loading, setloading] = React.useState(false);
@@ -108,6 +108,7 @@ export default function ConModal({ temail }) {
                 console.log(newItem);
                 if (res.status == "200") {
                   setloading(false);
+                  onclose();
                 } else {
                   setloading(false);
                 }

@@ -5,7 +5,7 @@ import Dropdown from "./Dropdown";
 import Button from "./Button";
 import InputAdd from "./InputAdd";
 
-export default function DevModal({ temail }) {
+export default function DevModal({ temail, onclose = () => {} }) {
   const router = useRouter();
   const [active, setActive] = React.useState("");
   const [loading, setloading] = React.useState(false);
@@ -141,6 +141,7 @@ export default function DevModal({ temail }) {
                 console.log(newItem);
                 if (res.status == "200") {
                   setloading(false);
+                  onclose();
                 } else {
                   setloading(false);
                 }

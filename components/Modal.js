@@ -96,9 +96,9 @@ export default function Modal({
           </div>
         </div>
 
-        {active === 1 ? <DevModal temail={email} /> : null}
-        {active === 2 ? <ConModal temail={email} /> : null}
-        {active === 3 ? <CreModal temail={email} /> : null}
+        {active === 1 ? <DevModal onclose={onclose} temail={email} /> : null}
+        {active === 2 ? <ConModal onclose={onclose} temail={email} /> : null}
+        {active === 3 ? <CreModal onclose={onclose} temail={email} /> : null}
       </div>
     </div>
   );
