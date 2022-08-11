@@ -3,6 +3,7 @@ import React from "react";
 import Input from "./Input";
 import Dropdown from "./Dropdown";
 import Button from "./Button";
+import InputAdd from "./InputAdd";
 
 export default function DevModal() {
   const router = useRouter();
@@ -22,7 +23,8 @@ export default function DevModal() {
         value=""
       />
       <Input label="Email Address" placeholder="name@email.com" value="" />
-      <Input
+
+      <Dropdown
         label="What is your current location?"
         placeholder="Pick your country"
         value=""
@@ -37,7 +39,7 @@ export default function DevModal() {
         placeholder="Pick a number"
         value=""
       />
-      <Input
+      <InputAdd
         label="Share a link to your appstore or playstore page"
         placeholder="Type link here"
         value=""

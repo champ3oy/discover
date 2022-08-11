@@ -13,6 +13,7 @@ import Footer from "../components/Footer";
 
 export default function Creator() {
   const [showModal, setShowModal] = useState(false);
+  const [type, settype] = useState(1);
   const [width, setwidth] = useState("");
 
   useEffect(() => {
@@ -28,6 +29,10 @@ export default function Creator() {
 
       setwidth(width_);
     }
+
+    setInterval(() => {
+      AOS.refresh();
+    }, 3000);
   }, []);
 
   const responsive = {
@@ -203,7 +208,15 @@ export default function Creator() {
             Games
           </h1>
           <div className={styles.btnrow}>
-            <div className={styles.hero3btn}>Sign Up</div>
+            <div
+              onClick={() => {
+                settype(1);
+                setShowModal(true);
+              }}
+              className={styles.hero3btn}
+            >
+              Sign Up
+            </div>
             <Link href="/developers">
               <div className={styles.hero3btno}>Learn more</div>
             </Link>
@@ -226,7 +239,15 @@ export default function Creator() {
             </h1>
           )}
           <div className={styles.btnrow}>
-            <div className={styles.hero3btn}>Sign Up</div>
+            <div
+              onClick={() => {
+                settype(2);
+                setShowModal(true);
+              }}
+              className={styles.hero3btn}
+            >
+              Get Early Access
+            </div>
             <Link href="/consumer">
               <div className={styles.hero3btno}>Learn more</div>
             </Link>
@@ -253,7 +274,15 @@ export default function Creator() {
             </h1>
           )}
           <div className={styles.btnrow}>
-            <div className={styles.hero3btn}>Sign Up</div>
+            <div
+              onClick={() => {
+                settype(3);
+                setShowModal(true);
+              }}
+              className={styles.hero3btn}
+            >
+              Get Early Access
+            </div>
             <Link href="/creators">
               <div className={styles.hero3btno}>Learn more</div>
             </Link>
@@ -268,7 +297,7 @@ export default function Creator() {
         onclose={() => {
           setShowModal(false);
         }}
-        type={3}
+        type={type}
       />
     </div>
   );

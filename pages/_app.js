@@ -79,7 +79,7 @@ function MyApp({ Component, pageProps }) {
               {width < 600 ? null : <h1>Discover.App</h1>}
               <p>
                 The power of engaged communities in discovering new apps, games,
-                contents and creators
+                contents, creators, products and brands
               </p>
             </div>
           </div>

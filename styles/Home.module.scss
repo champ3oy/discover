@@ -316,6 +316,10 @@ $vw-viewport: 1920;
   justify-content: center;
   align-items: center;
 }
+.fnavlinks {
+  margin-left: get-vw(-15px);
+  margin-top: get-vw(4px);
+}
 .icon {
   width: get-vw(30px);
   height: get-vw(20px);

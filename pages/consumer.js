@@ -189,7 +189,14 @@ export default function Consumer() {
                       <Pagination page={index + 1} sliderRef={sliderRef} />
                       <h1>{item.title}</h1>
                       <p>{item.subtext}</p>
-                      <div className={styles.herobtn}>Sign Up</div>
+                      <div
+                        onClick={() => {
+                          setShowModal(true);
+                        }}
+                        className={styles.herobtn}
+                      >
+                        Get Early Access
+                      </div>
                     </div>
 
                     <img className={styles.heroimg} src="cm1.png" alt="hero" />
@@ -203,7 +210,14 @@ export default function Consumer() {
                       <Pagination page={index + 1} sliderRef={sliderRef} />
                       <h1>{item.title}</h1>
                       <p>{item.subtext}</p>
-                      <div className={styles.herobtn}>Sign Up</div>
+                      <div
+                        onClick={() => {
+                          setShowModal(true);
+                        }}
+                        className={styles.herobtn}
+                      >
+                        Get Early Access
+                      </div>
                     </div>
 
                     <img
@@ -293,7 +307,14 @@ export default function Consumer() {
               with ease
             </h1>
           )}
-          <div className={styles.hero3btn}>Sign Up</div>
+          <div
+            onClick={() => {
+              setShowModal(true);
+            }}
+            className={styles.hero3btn}
+          >
+            Get Early Access
+          </div>
         </div>
       </section>
 
@@ -321,7 +342,14 @@ export default function Consumer() {
                 TikTok & Twitch had <br />a beautiful baby
               </h1>
             )}
-            <div className={styles.hero3btn}>Sign Up</div>
+            <div
+              onClick={() => {
+                setShowModal(true);
+              }}
+              className={styles.hero3btn}
+            >
+              Get Early Access
+            </div>
           </div>
           <div className={styles.hero3content2}>
             {width <= 600 ? (
@@ -333,7 +361,14 @@ export default function Consumer() {
                 and app previews
               </h1>
             )}
-            <div className={styles.hero3btn}>Sign Up</div>
+            <div
+              onClick={() => {
+                setShowModal(true);
+              }}
+              className={styles.hero3btn}
+            >
+              Get Early Access
+            </div>
           </div>
         </Carousel>
       </section>

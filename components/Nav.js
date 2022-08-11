@@ -93,7 +93,9 @@ export default function Nav({ onPress = () => {} }) {
           />
         ) : (
           <div onClick={onPress} className={styles.navbtn}>
-            Sign Up
+            {["/", "/developers"].includes(router.pathname)
+              ? "Sign Up"
+              : "Get Early Access"}
           </div>
         )}
       </div>

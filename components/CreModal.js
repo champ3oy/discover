@@ -3,6 +3,8 @@ import React from "react";
 import Input from "./Input";
 import Dropdown from "./Dropdown";
 import Button from "./Button";
+import InputAdd from "./InputAdd";
+import InputBool from "./InputBool";
 
 export default function CreModal() {
   const router = useRouter();
@@ -22,35 +24,27 @@ export default function CreModal() {
         value=""
       />
       <Input label="Email Address" placeholder="name@email.com" value="" />
-      <Input
+      <Dropdown
         label="What is your current location?"
         placeholder="Pick your country"
         value=""
       />
-      <Dropdown
-        label="What kind of developer or publisher are you?"
-        placeholder="Pick a type"
+
+      <InputAdd
+        label="What type of content do you produce"
+        placeholder="Type content and add"
         value=""
       />
-      <Dropdown
-        label="How many games or apps do your publish every year?"
-        placeholder="Pick a number"
+      <InputAdd
+        label="List and share contacts of other creators and influencers who will benefit from this 
+        content discovery service"
+        placeholder="Type creator or influencer name and add"
         value=""
       />
-      <Input
-        label="Share a link to your appstore or playstore page"
-        placeholder="Type link here"
-        value=""
-      />
-      <Dropdown
-        label="What is your annual marketing budget?"
-        placeholder="Pick your budget range"
-        value=""
-      />
-      <Input
-        label="How much would you pay per month for your app or game to be showcased and 
-        introduced to our community? "
-        placeholder="Type amount here"
+
+      <InputBool
+        label="Would you be open to talk about Discover.App to your followers and direct them to sign 
+        up? We will give you a special link. You will be rewarded!"
         value=""
       />
 

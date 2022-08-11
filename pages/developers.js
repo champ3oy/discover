@@ -121,7 +121,14 @@ export default function Developers() {
                 app or game does not sink into the abyss of the AppStore or the
                 PlayStore
               </p>
-              <div className={styles.herobtn}>Sign Up</div>
+              <div
+                onClick={() => {
+                  setShowModal(true);
+                }}
+                className={styles.herobtn}
+              >
+                Sign Up
+              </div>
             </div>
 
             <img className={styles.heroimg} src="hero1.png" alt="hero" />
@@ -142,7 +149,14 @@ export default function Developers() {
                 into your app or game cheaply and easily. Enjoy the fruits of
                 your labour!
               </p>
-              <div className={styles.herobtn}>Sign Up</div>
+              <div
+                onClick={() => {
+                  setShowModal(true);
+                }}
+                className={styles.herobtn}
+              >
+                Sign Up
+              </div>
             </div>
 
             <img className={styles.heroimg} src="hero1.png" alt="hero" />
@@ -200,7 +214,14 @@ export default function Developers() {
               our interactive feed
             </h1>
           )}
-          <div className={styles.hero3btn}>Sign Up</div>
+          <div
+            onClick={() => {
+              setShowModal(true);
+            }}
+            className={styles.hero3btn}
+          >
+            Sign Up
+          </div>
         </div>
       </section>
 

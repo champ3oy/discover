@@ -187,7 +187,14 @@ export default function Creator() {
                   Partner with brands to create specific contents and ads for
                   their Discover.App page. You will be handsomely rewarded!
                 </p>
-                <div className={styles.herobtn}>Sign Up</div>
+                <div
+                  onClick={() => {
+                    setShowModal(true);
+                  }}
+                  className={styles.herobtn}
+                >
+                  Get Early Access
+                </div>
               </div>
             ) : (
               <div className={styles.herocontent}>
@@ -201,7 +208,14 @@ export default function Creator() {
                   <br />
                   page. You will be handsomely rewarded!
                 </p>
-                <div className={styles.herobtn}>Sign Up</div>
+                <div
+                  onClick={() => {
+                    setShowModal(true);
+                  }}
+                  className={styles.herobtn}
+                >
+                  Get Early Access
+                </div>
               </div>
             )}
           </section>
@@ -217,7 +231,14 @@ export default function Creator() {
                   their attention and redirect them to follow you on Youtube,
                   TikTok, Instagram and/or other social media channels
                 </p>
-                <div className={styles.herobtn}>Sign Up</div>
+                <div
+                  onClick={() => {
+                    setShowModal(true);
+                  }}
+                  className={styles.herobtn}
+                >
+                  Get Early Access
+                </div>
               </div>
             ) : (
               <div className={styles.herocontent}>
@@ -234,7 +255,14 @@ export default function Creator() {
                   you on Youtube, TikTok, Instagram and/or other social media
                   channels
                 </p>
-                <div className={styles.herobtn}>Sign Up</div>
+                <div
+                  onClick={() => {
+                    setShowModal(true);
+                  }}
+                  className={styles.herobtn}
+                >
+                  Get Early Access
+                </div>
               </div>
             )}
           </section>
@@ -303,7 +331,14 @@ export default function Creator() {
               with Discover.App
             </h1>
           )}
-          <div className={styles.hero3btn}>Sign Up</div>
+          <div
+            onClick={() => {
+              setShowModal(true);
+            }}
+            className={styles.hero3btn}
+          >
+            Get Early Access
+          </div>
         </div>
       </section>
 
@@ -320,7 +355,14 @@ export default function Creator() {
               games & content
             </h1>
           )}
-          <div className={styles.hero3btn}>Sign Up</div>
+          <div
+            onClick={() => {
+              setShowModal(true);
+            }}
+            className={styles.hero3btn}
+          >
+            Get Early Access
+          </div>
         </div>
       </section>
 

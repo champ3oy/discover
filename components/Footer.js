@@ -3,8 +3,10 @@ import styles from "../styles/Home.module.scss";
 import React, { useState, useEffect, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useRouter } from "next/router";
 
 export default function Footer() {
+  const router = useRouter();
   const [width, setwidth] = useState("");
 
   useEffect(() => {
@@ -33,7 +35,11 @@ export default function Footer() {
 
         <div className={styles.input}>
           <input type="text" placeholder="Enter your email" />
-          <div className={styles.footerbtn}>Sign Up</div>
+          <div className={styles.footerbtn}>
+            {["/", "/developers"].includes(router.pathname)
+              ? "Sign Up"
+              : "Get Early Access"}
+          </div>
         </div>
       </div>
 
@@ -72,7 +78,7 @@ export default function Footer() {
           <div className={styles.fnavleft}>
             <img className={styles.logo} src="logo.png" alt="logo" />
 
-            <div className={styles.navlinks}>
+            <div className={styles.fnavlinks}>
               <a href="#">&copy; Discover.App 2022</a>
             </div>
           </div>
