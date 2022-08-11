@@ -159,6 +159,32 @@ $vw-viewport: 1920;
   align-items: center;
   cursor: pointer;
 }
+.inputaddlist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: #fffd2e;
+  margin-top: get-vw(15px);
+}
+.inputaddlist div {
+  height: get-vw(47px);
+  border-radius: get-vw(22px);
+  border: 1px solid black;
+  background-color: black;
+  font-size: get-vw(17px);
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: get-vw(10px);
+  flex-direction: row;
+  padding: 0 get-vw(15px);
+}
+.inputaddlist img {
+  margin-left: get-vw(15px);
+  cursor: pointer;
+}
 .inputbool {
   width: 100%;
   height: get-vw(65px);

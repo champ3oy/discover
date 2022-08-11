@@ -18,7 +18,9 @@ export default function Developers() {
 
   useEffect(() => {
     AOS.init({
-      offset: 500,
+      offset: 300,
+      mirror: false,
+      delay: 100,
     });
 
     if (typeof window !== "undefined") {

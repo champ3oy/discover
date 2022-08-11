@@ -15,7 +15,8 @@ export default function DevModal({ temail, onclose = () => {} }) {
   const [country, setcountry] = React.useState("");
   const [devtype, setdevtype] = React.useState("");
   const [numApps, setnumApps] = React.useState("");
-  const [links, setlinks] = React.useState("");
+  const [qlinks, setqlinks] = React.useState("");
+  const [links, setlinks] = React.useState([]);
   const [budget, setbudget] = React.useState("");
   const [monthly, setmonthly] = React.useState("");
 
@@ -76,8 +77,18 @@ export default function DevModal({ temail, onclose = () => {} }) {
       <InputAdd
         label="Share a link to your appstore or playstore page"
         placeholder="Type link here"
-        value={links}
-        onChange={(e) => setlinks(e)}
+        value={qlinks}
+        list={links}
+        onChange={(e) => {
+          setqlinks(e);
+        }}
+        onAdd={() => {
+          setlinks([...links, qlinks]);
+          setqlinks("");
+        }}
+        onRemove={(index) => {
+          setlinks(links.filter((_, i) => i !== index));
+        }}
       />
       <Input
         label="What is your annual marketing budget?"
@@ -131,7 +142,7 @@ export default function DevModal({ temail, onclose = () => {} }) {
                     country: country,
                     dev: devtype,
                     apps: numApps,
-                    links: links,
+                    links: links.toString(),
                     budget: budget,
                     month: monthly,
                   }),

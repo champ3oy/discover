@@ -16,8 +16,10 @@ export default function ConModal({ temail, onclose = () => {} }) {
   const [country, setcountry] = React.useState("");
   const [phone, setphone] = React.useState("");
   const [rewards, setrewards] = React.useState("");
-  const [links, setlinks] = React.useState("");
-  const [emails, setemails] = React.useState("");
+  const [qlinks, setqlinks] = React.useState("");
+  const [links, setlinks] = React.useState([]);
+  const [qemails, setqemails] = React.useState("");
+  const [emails, setemails] = React.useState([]);
 
   console.log(email);
 
@@ -73,14 +75,34 @@ export default function ConModal({ temail, onclose = () => {} }) {
         label="Which apps, developers, creators, publishers and communities would you want to see on 
         Discover.App"
         placeholder="Type the name and add"
-        value={links}
-        onChange={(e) => setlinks(e)}
+        value={qlinks}
+        list={links}
+        onChange={(e) => {
+          setqlinks(e);
+        }}
+        onAdd={() => {
+          setlinks([...links, qlinks]);
+          setqlinks("");
+        }}
+        onRemove={(index) => {
+          setlinks(links.filter((_, i) => i !== index));
+        }}
       />
       <InputAdd
         label="Share email addresses of your friends you would want to introduce to Discover.App"
         placeholder="Type the email address and add"
-        value={emails}
-        onChange={(e) => setemails(e)}
+        value={qemails}
+        list={emails}
+        onChange={(e) => {
+          setqemails(e);
+        }}
+        onAdd={() => {
+          setemails([...emails, qemails]);
+          setqemails("");
+        }}
+        onRemove={(index) => {
+          setemails(emails.filter((_, i) => i !== index));
+        }}
       />
 
       <Button
@@ -99,8 +121,8 @@ export default function ConModal({ temail, onclose = () => {} }) {
                     country: country,
                     phone: phone,
                     rewards: rewards,
-                    links: links,
-                    emails: emails,
+                    links: links.toString(),
+                    emails: emails.toString(),
                   }),
                   headers: { "content-type": "application/json" },
                 });

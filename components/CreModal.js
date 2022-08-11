@@ -23,8 +23,10 @@ export default function CreModal({ temail, onclose = () => {} }) {
   const [igl, setigl] = React.useState("");
   const [tkl, settkl] = React.useState("");
   const [twl, settwl] = React.useState("");
-  const [content, setcontent] = React.useState("");
-  const [creators, setcreators] = React.useState("");
+  const [qcontent, setqcontent] = React.useState("");
+  const [content, setcontent] = React.useState([]);
+  const [qcreators, setqcreators] = React.useState("");
+  const [creators, setcreators] = React.useState([]);
   const [share, setshare] = React.useState("");
 
   const [emails, setemails] = React.useState("");
@@ -94,15 +96,33 @@ export default function CreModal({ temail, onclose = () => {} }) {
       <InputAdd
         label="What type of content do you produce"
         placeholder="Type content and add"
-        value={content}
-        onChange={(e) => setcontent(e)}
+        value={qcontent}
+        list={content}
+        onChange={(e) => {
+          setqcontent(e);
+        }}
+        onAdd={() => {
+          setcontent([...content, qcontent]);
+          setqcontent("");
+        }}
+        onRemove={(index) => {
+          setcontent(content.filter((_, i) => i !== index));
+        }}
       />
       <InputAdd
         label="List and share contacts of other creators and influencers who will benefit from this 
         content discovery service"
         placeholder="Type creator or influencer name and add"
-        value={creators}
-        onChange={(e) => setcreators(e)}
+        value={qcreators}
+        list={creators}
+        onChange={(e) => setqcreators(e)}
+        onAdd={() => {
+          setcreators([...creators, qcreators]);
+          setqcreators("");
+        }}
+        onRemove={(index) => {
+          setcreators(creators.filter((_, i) => i !== index));
+        }}
       />
 
       <InputBool
@@ -164,8 +184,8 @@ export default function CreModal({ temail, onclose = () => {} }) {
                     igl: igl,
                     tkl: tkl,
                     twl: twl,
-                    content: content,
-                    creators: creators,
+                    content: content.toString(),
+                    creators: creators.toString(),
                     share: share,
                   }),
                   headers: { "content-type": "application/json" },
