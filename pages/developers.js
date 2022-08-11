@@ -72,7 +72,7 @@ export default function Developers() {
           infinite={true}
           showArrows={false}
           showStatus={false}
-          autoPlaySpeed={10000}
+          autoPlaySpeed={20000}
           showDots={false}
           swipeable={true}
           arrows={false}
@@ -172,7 +172,7 @@ export default function Developers() {
             <img src="icons.png" alt="hero" className={styles.icons23} />
           </div>
           <p>
-            Post 15 seconds preview videos of your app or game and start
+            Post up to 15 seconds preview videos of your app or game and start
             exploding on the AppStore, PlayStore or <br />
             Amazon Store with downloads & reviews
           </p>

@@ -170,7 +170,7 @@ export default function Creator() {
           infinite={true}
           showArrows={false}
           showStatus={false}
-          autoPlaySpeed={10000}
+          autoPlaySpeed={20000}
           showDots={true}
           swipeable={true}
           arrows={false}

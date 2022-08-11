@@ -13,7 +13,9 @@ import Footer from "../components/Footer";
 
 export default function Creator() {
   const [showModal, setShowModal] = useState(false);
-  const [type, settype] = useState(1);
+  const [showModal2, setShowModal2] = useState(false);
+  const [showModal3, setShowModal3] = useState(false);
+
   const [width, setwidth] = useState("");
 
   useEffect(() => {
@@ -173,8 +175,8 @@ export default function Creator() {
                 />
               </div>
               <h1>
-                The power of community <br />
-                for discovering apps, content & <br />
+                The power of communities <br />
+                in discovering apps, content & <br />
                 creators
               </h1>
               {width <= 600 ? (
@@ -210,7 +212,6 @@ export default function Creator() {
           <div className={styles.btnrow}>
             <div
               onClick={() => {
-                settype(1);
                 setShowModal(true);
               }}
               className={styles.hero3btn}
@@ -241,8 +242,7 @@ export default function Creator() {
           <div className={styles.btnrow}>
             <div
               onClick={() => {
-                settype(2);
-                setShowModal(true);
+                setShowModal2(true);
               }}
               className={styles.hero3btn}
             >
@@ -276,8 +276,7 @@ export default function Creator() {
           <div className={styles.btnrow}>
             <div
               onClick={() => {
-                settype(3);
-                setShowModal(true);
+                setShowModal3(true);
               }}
               className={styles.hero3btn}
             >
@@ -297,7 +296,21 @@ export default function Creator() {
         onclose={() => {
           setShowModal(false);
         }}
-        type={type}
+        type={1}
+      />
+      <Modal
+        show={showModal2}
+        onclose={() => {
+          setShowModal2(false);
+        }}
+        type={2}
+      />
+      <Modal
+        show={showModal3}
+        onclose={() => {
+          setShowModal3(false);
+        }}
+        type={3}
       />
     </div>
   );

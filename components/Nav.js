@@ -33,7 +33,9 @@ export default function Nav({ onPress = () => {} }) {
   return (
     <nav className={styles.nav}>
       <div className={styles.navleft}>
-        <img className={styles.logo} src="logo.png" alt="logo" />
+        <Link href="/">
+          <img className={styles.logo} src="logo.png" alt="logo" />
+        </Link>
       </div>
       <div className={styles.navlinks}>
         <Link href="/">

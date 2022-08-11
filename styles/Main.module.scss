@@ -13,12 +13,14 @@ $vw-viewport: 1920;
   // scroll-snap-type: mandatory;
   // scroll-snap-points-y: repeat(300px);
   // scroll-snap-type: y mandatory;
+  background-color: white;
 }
 
 .main {
   height: get-vw(1080px);
   width: 100vw;
   // scroll-snap-align: start;
+  background-color: black;
 }
 .logo {
   width: get-vw(195px);
@@ -96,12 +98,12 @@ $vw-viewport: 1920;
   background-color: #fffd2e;
   height: get-vw(1070px);
   width: 100vw;
-  background-image: url("/background.png");
+  background-image: url("/homebg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: 0;
   background-position-y: 0;
-  border: none;
+  border-bottom: 2px solid #fffd2e;
   display: flex;
   flex-direction: row;
   justify-content: center;

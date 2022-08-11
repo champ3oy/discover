@@ -1,5 +1,5 @@
 import styles from "../styles/Modal.module.scss";
-import React from "react";
+import React, { useEffect } from "react";
 import DevModal from "./DevModal";
 import ConModal from "./ConModal";
 import CreModal from "./CreModal";
@@ -9,8 +9,15 @@ export default function Modal({
   onclose = () => {},
   onsubmit = () => {},
   type = 1,
+  email = null,
 }) {
   const [active, setActive] = React.useState(type);
+
+  useEffect(() => {
+    if (type == 4) {
+      setActive(1);
+    }
+  }, [type]);
 
   return (
     <div
@@ -21,7 +28,12 @@ export default function Modal({
     >
       <div className={styles.modal}>
         <img onClick={onclose} src="/x.png" className={styles.x} />
-        <div className={styles.modalheader}>
+        <div
+          style={{
+            backgroundColor: active == 4 ? "#f5f5f5" : "#fff",
+          }}
+          className={styles.modalheader}
+        >
           <div
             onClick={() => {
               setActive(1);
@@ -29,10 +41,14 @@ export default function Modal({
             style={
               active == 1
                 ? {
-                    backgroundColor: "#FFFD2E",
-                    color: "black",
+                    backgroundColor: "#000",
+                    color: "#FFFD2E",
+                    display: "flex",
                   }
-                : null
+                : {
+                    display: type == 4 ? "flex" : "none",
+                    color: "#000",
+                  }
             }
             className={styles.modalbtn}
           >
@@ -45,14 +61,18 @@ export default function Modal({
             style={
               active == 2
                 ? {
-                    backgroundColor: "#FFFD2E",
-                    color: "black",
+                    backgroundColor: "#000",
+                    color: "#FFFD2E",
+                    display: "flex",
                   }
-                : null
+                : {
+                    display: type == 4 ? "flex" : "none",
+                    color: "#000",
+                  }
             }
             className={styles.modalbtn}
           >
-            Consumer
+            Consumer & Superfan
           </div>
           <div
             onClick={() => {
@@ -61,10 +81,14 @@ export default function Modal({
             style={
               active == 3
                 ? {
-                    backgroundColor: "#FFFD2E",
-                    color: "black",
+                    backgroundColor: "#000",
+                    color: "#FFFD2E",
+                    display: "flex",
                   }
-                : null
+                : {
+                    display: type == 4 ? "flex" : "none",
+                    color: "#000",
+                  }
             }
             className={styles.modalbtn}
           >
@@ -72,9 +96,9 @@ export default function Modal({
           </div>
         </div>
 
-        {active === 1 ? <DevModal /> : null}
-        {active === 2 ? <ConModal /> : null}
-        {active === 3 ? <CreModal /> : null}
+        {active === 1 ? <DevModal temail={email} /> : null}
+        {active === 2 ? <ConModal temail={email} /> : null}
+        {active === 3 ? <CreModal temail={email} /> : null}
       </div>
     </div>
   );

@@ -175,7 +175,7 @@ export default function Consumer() {
           infinite={true}
           showArrows={false}
           showStatus={false}
-          autoPlaySpeed={10000}
+          autoPlaySpeed={20000}
           showDots={false}
           swipeable={true}
           arrows={false}

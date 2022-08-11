@@ -1,8 +1,8 @@
 import { table, getMinifiedItem } from "../../util/Airtable";
 
-export default async (req, res) => {
-  // name, email, address, kind of dev, number of apps, app links, annual budget, per month
-  const { Name, Phone, Email, dev, apps, link, budget, month } = req.body;
+const createdev = async (req, res) => {
+  // name, email, country, kind of dev, number of apps, app links, annual budget, per month
+  const { Name, Email, country, dev, apps, links, budget, month } = req.body;
   try {
     // console.log(Code);
     const newRecords = await table.create([
@@ -10,7 +10,7 @@ export default async (req, res) => {
         fields: {
           fldLq7PZWEk5UsD85: Name,
           fld0nCwTYhqsjLuCc: Email,
-          // adress: """
+          fldRDxqGkqhLm0oOn: country,
           fld2dWXWQk8FuZjgr: dev,
           fldwtippexQt3jW88: apps,
           fldjlY8EvlMfMCsnl: links,
@@ -27,3 +27,5 @@ export default async (req, res) => {
     res.status(500).json({ msg: "Something went wrong! 😕" });
   }
 };
+
+export default createdev;

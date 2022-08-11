@@ -13,10 +13,12 @@ $vw-viewport: 1920;
 }
 .container {
   color: white;
+  background-color: white;
 }
 
 .main {
   height: get-vw(1069px);
+  background-color: black;
 }
 .nav {
   padding: get-vw(31px) get-vw(320px);
@@ -120,6 +122,8 @@ $vw-viewport: 1920;
   align-items: center;
   padding-top: get-vw(129px);
   width: 100vw;
+  background-color: black;
+  margin-top: get-vw(-1px);
 }
 .hero2content {
   display: flex;

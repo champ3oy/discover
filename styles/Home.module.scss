@@ -232,6 +232,7 @@ $vw-viewport: 1920;
   justify-content: center;
   align-items: center;
   position: relative;
+  background-color: black;
 }
 .footercontent {
   display: flex;
@@ -273,6 +274,8 @@ $vw-viewport: 1920;
   font-weight: 400;
   color: white;
   padding-left: get-vw(40px);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 17px;
 }
 .input input::placeholder {
   color: #a5a5a5;
@@ -319,6 +322,7 @@ $vw-viewport: 1920;
 .fnavlinks {
   margin-left: get-vw(-15px);
   margin-top: get-vw(4px);
+  font-size: get-vw(18px);
 }
 .icon {
   width: get-vw(30px);

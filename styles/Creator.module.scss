@@ -7,6 +7,7 @@ $vw-viewport: 1920;
 
 .container {
   color: white;
+  background-color: white;
 }
 
 .main {
@@ -21,6 +22,7 @@ $vw-viewport: 1920;
   background-position-y: 100%, 0;
   // background-color: red;
   background-size: get-vw(534px), get-vw(554px);
+  background-color: black;
 }
 
 .logo {
@@ -93,6 +95,8 @@ $vw-viewport: 1920;
   align-items: center;
   padding-top: get-vw(129px);
   width: 100vw;
+  background-color: black;
+  margin-top: get-vw(-1px);
 }
 .hero2content {
   display: flex;

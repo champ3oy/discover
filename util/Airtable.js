@@ -10,6 +10,8 @@ const base = Airtable.base("appagrIZO3J5Z2XxM");
 
 // Reference a table
 const table = base("tbl5uzFqxw7u6iXue");
+const table2 = base("tblq3A50ZGhDjECql");
+const table3 = base("tblQRZsM0vW9X2zkd");
 
 const minifyItems = (records) =>
   records.map((record) => getMinifiedItem(record));
@@ -22,4 +24,4 @@ const getMinifiedItem = (record) => {
   };
 };
 
-export { table, minifyItems, getMinifiedItem };
+export { table, table2, table3, minifyItems, getMinifiedItem };

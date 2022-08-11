@@ -5,10 +5,29 @@ import Dropdown from "./Dropdown";
 import Button from "./Button";
 import InputAdd from "./InputAdd";
 import InputBool from "./InputBool";
+import InputDouble from "./InputDouble";
 
-export default function CreModal() {
+export default function CreModal({ temail }) {
   const router = useRouter();
   const [active, setActive] = React.useState("");
+  const [loading, setloading] = React.useState(false);
+
+  const [name, setname] = React.useState("");
+  const [email, setemail] = React.useState(temail);
+  const [country, setcountry] = React.useState("");
+  const [ytn, setytn] = React.useState("");
+  const [ign, setign] = React.useState("");
+  const [tkn, settkn] = React.useState("");
+  const [twn, settwn] = React.useState("");
+  const [ytl, setytl] = React.useState("");
+  const [igl, setigl] = React.useState("");
+  const [tkl, settkl] = React.useState("");
+  const [twl, settwl] = React.useState("");
+  const [content, setcontent] = React.useState("");
+  const [creators, setcreators] = React.useState("");
+  const [share, setshare] = React.useState("");
+
+  const [emails, setemails] = React.useState("");
 
   React.useEffect(() => {
     if (["/", "/creators", "/consumer"].includes(router.pathname)) {
@@ -19,36 +38,175 @@ export default function CreModal() {
   return (
     <div>
       <Input
-        label="Name of Developer or Publisher"
-        placeholder="Your name here"
-        value=""
+        label="Your Name"
+        placeholder="Type your name here"
+        value={name}
+        onChange={(e) => setname(e)}
       />
-      <Input label="Email Address" placeholder="name@email.com" value="" />
+      <Input
+        label="Email Address"
+        placeholder="name@email.com"
+        value={email}
+        onChange={(email) => {
+          setemail(email);
+        }}
+      />
+
       <Dropdown
         label="What is your current location?"
         placeholder="Pick your country"
-        value=""
+        country={true}
+        onChange={(e) => setcountry(e)}
+      />
+
+      <InputDouble
+        label="How many followers do you have on social media"
+        placeholder1="Youtube Follower count"
+        placeholder2="Instagram Follower count"
+        value1={ytn}
+        value2={ign}
+        placeholder3="Tiktok Follower count"
+        placeholder4="Twitter Follower count"
+        value3={tkn}
+        value4={twn}
+        onChange1={(e) => setytn(e)}
+        onChange2={(e) => setign(e)}
+        onChange3={(e) => settkn(e)}
+        onChange4={(e) => settwn(e)}
+      />
+
+      <InputDouble
+        label="Social media links"
+        placeholder1="Your youtube profile link"
+        placeholder2="Your instagram profile link"
+        value1={ytl}
+        value2={igl}
+        placeholder3="Your tiktok profile link"
+        placeholder4="Your twitter profile link"
+        value3={tkl}
+        value4={twl}
+        onChange1={(e) => setytl(e)}
+        onChange2={(e) => setigl(e)}
+        onChange3={(e) => settkl(e)}
+        onChange4={(e) => settwl(e)}
       />
 
       <InputAdd
         label="What type of content do you produce"
         placeholder="Type content and add"
-        value=""
+        value={content}
+        onChange={(e) => setcontent(e)}
       />
       <InputAdd
         label="List and share contacts of other creators and influencers who will benefit from this 
         content discovery service"
         placeholder="Type creator or influencer name and add"
-        value=""
+        value={creators}
+        onChange={(e) => setcreators(e)}
       />
 
       <InputBool
         label="Would you be open to talk about Discover.App to your followers and direct them to sign 
         up? We will give you a special link. You will be rewarded!"
-        value=""
+        value={share}
+        onChange={(e) => setshare(e)}
       />
 
-      <Button text="Join as a developer or Publisher " />
+      <Button
+        onPress={() => {
+          console.log(
+            name,
+            email,
+            country,
+            ytn,
+            ign,
+            tkn,
+            twn,
+            ytl,
+            igl,
+            tkl,
+            twl,
+            content,
+            creators,
+            share
+          );
+          if (
+            name &&
+            email &&
+            country &&
+            ytn &&
+            ign &&
+            tkn &&
+            twn &&
+            ytl &&
+            igl &&
+            tkl &&
+            twl &&
+            content &&
+            creators &&
+            share
+          ) {
+            setloading(true);
+            const addItem = async (item) => {
+              const code = Math.random().toString().substr(2, 6);
+              try {
+                const res = await fetch("/api/createCre", {
+                  method: "POST",
+                  body: JSON.stringify({
+                    Name: name,
+                    Email: email,
+                    country: country,
+                    ytn: ytn,
+                    ign: ign,
+                    tkn: tkn,
+                    twn: twn,
+                    ytl: ytl,
+                    igl: igl,
+                    tkl: tkl,
+                    twl: twl,
+                    content: content,
+                    creators: creators,
+                    share: share,
+                  }),
+                  headers: { "content-type": "application/json" },
+                });
+                const newItem = await res.json();
+                console.log(newItem);
+                if (res.status == "200") {
+                  setloading(false);
+                } else {
+                  setloading(false);
+                }
+              } catch (error) {
+                console.error(error);
+                setloading(false);
+              }
+            };
+
+            addItem();
+          } else {
+            alert("Complete all fields");
+          }
+        }}
+        text={loading ? "Loading" : "Join as a creator or influencer"}
+        active={
+          name &&
+          email &&
+          country &&
+          ytn &&
+          ign &&
+          tkn &&
+          twn &&
+          ytl &&
+          igl &&
+          tkl &&
+          twl &&
+          content &&
+          creators &&
+          share
+        }
+        // active={true}
+      />
     </div>
   );
 }
