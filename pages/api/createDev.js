@@ -1,4 +1,4 @@
-import { table, getMinifiedItem } from "../../utils/Airtable";
+import { table, getMinifiedItem } from "../../util/Airtable";
 
 export default async (req, res) => {
   // name, email, address, kind of dev, number of apps, app links, annual budget, per month
