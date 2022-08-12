@@ -134,37 +134,21 @@ export default function CreModal({ temail, onclose = () => {} }) {
 
       <Button
         onPress={() => {
-          console.log(
-            name,
-            email,
-            country,
-            ytn,
-            ign,
-            tkn,
-            twn,
-            ytl,
-            igl,
-            tkl,
-            twl,
-            content,
-            creators,
-            share
-          );
           if (
             name &&
             email &&
-            country &&
-            ytn &&
-            ign &&
-            tkn &&
-            twn &&
-            ytl &&
-            igl &&
-            tkl &&
-            twl &&
-            content &&
-            creators &&
-            share
+            country
+            // ytn &&
+            // ign &&
+            // tkn &&
+            // twn &&
+            // ytl &&
+            // igl &&
+            // tkl &&
+            // twl &&
+            // content &&
+            // creators &&
+            // share
           ) {
             setloading(true);
             const addItem = async (item) => {
@@ -211,20 +195,18 @@ export default function CreModal({ temail, onclose = () => {} }) {
         }}
         text={loading ? "Loading" : "Join as a creator or influencer"}
         active={
-          name &&
-          email &&
-          country &&
-          ytn &&
-          ign &&
-          tkn &&
-          twn &&
-          ytl &&
-          igl &&
-          tkl &&
-          twl &&
-          content &&
-          creators &&
-          share
+          name && email && country
+          // ytn &&
+          // ign &&
+          // tkn &&
+          // twn &&
+          // ytl &&
+          // igl &&
+          // tkl &&
+          // twl &&
+          // content &&
+          // creators &&
+          // share
         }
         // active={true}
       />

@@ -116,8 +116,8 @@ export default function Developers() {
                 it’s low cost
               </h1>
               <p>
-                Don’t allow your your apps and games to go unnoticed on the
-                AppStore or <br />
+                Don’t allow your apps and games to go unnoticed on the AppStore
+                or <br />
                 the PlayStore nor your hard work to go unrewarded. With
                 Discover.App, your <br />
                 app or game does not sink into the abyss of the AppStore or the

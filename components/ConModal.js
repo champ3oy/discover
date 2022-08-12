@@ -108,7 +108,7 @@ export default function ConModal({ temail, onclose = () => {} }) {
       <Button
         onPress={() => {
           console.log(name, email, country, phone, rewards, links, emails);
-          if (name && email && country && phone && rewards && links && emails) {
+          if (name && email && country && phone && rewards) {
             setloading(true);
             const addItem = async (item) => {
               const code = Math.random().toString().substr(2, 6);
@@ -146,7 +146,7 @@ export default function ConModal({ temail, onclose = () => {} }) {
           }
         }}
         text={loading ? "Loading" : "Join as a consumer or surperfan"}
-        active={name && email && country && phone && rewards && links && emails}
+        active={name && email && country && phone && rewards}
         // active={true}
       />
     </div>
